@@ -1,4 +1,5 @@
-﻿using Education.DAL.CustomValidation;
+﻿using Education.DAL.Custom_Validtion;
+using Education.DAL.CustomValidation;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,7 +13,7 @@ namespace Education.DAL.models
         [EnumDataType(typeof(TypeAllowedValues), ErrorMessage = "Invalid Input")]
         public string Type { get; set; } /// hardcoded
 
-
+        [Date]
         public DateTime Date { get; set; }
 
         public bool IsDeleted { set; get; }
