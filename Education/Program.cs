@@ -13,7 +13,7 @@ namespace Education
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<DBContext>(option =>
             {
-                option.UseSqlServer(builder.Configuration.GetConnectionString("SC"));
+                option.UseSqlServer(builder.Configuration.GetConnectionString("EducationConnectionString"));
             });
             var app = builder.Build();
 

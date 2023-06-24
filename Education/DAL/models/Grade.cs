@@ -7,7 +7,10 @@ namespace Education.DAL.models
     public class Grade
     {
         public int Id { get; set; }
+
+        [Column(TypeName = "decimal(18, 2)")]
         public decimal grade { get; set; }
+
         [EnumDataType(typeof(TypeAllowedValues),ErrorMessage ="Invalid Input")]
         public string Type { get; set; }
         public DateTime Date { get; set; }

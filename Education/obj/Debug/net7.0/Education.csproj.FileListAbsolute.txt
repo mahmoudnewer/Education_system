@@ -142,3 +142,8 @@ D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\ref
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.pdb
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.genruntimeconfig.cache
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\ref\Education.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Humanizer.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.CodeDom.dll
