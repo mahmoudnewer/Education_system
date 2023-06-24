@@ -1,0 +1,144 @@
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\appsettings.Development.json
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\appsettings.json
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Education.staticwebassets.runtime.json
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Education.exe
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Education.deps.json
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Education.runtimeconfig.json
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Education.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Education.pdb
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Azure.Core.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Azure.Identity.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Castle.Core.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.Identity.Client.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\System.Drawing.Common.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\System.Memory.Data.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\System.Runtime.Caching.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\System.Security.Permissions.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\System.Windows.Extensions.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\ayman\Downloads\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.csproj.AssemblyReference.cache
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.AssemblyInfoInputs.cache
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.AssemblyInfo.cs
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.csproj.CoreCompileInputs.cache
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.RazorAssemblyInfo.cache
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.RazorAssemblyInfo.cs
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\staticwebassets\msbuild.Education.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\staticwebassets\msbuild.build.Education.props
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Education.props
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Education.props
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\staticwebassets.pack.json
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\staticwebassets.build.json
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\staticwebassets.development.json
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\scopedcss\bundle\Education.styles.css
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\scopedcss\projectbundle\Education.bundle.scp.css
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.csproj.CopyComplete
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.dll
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\refint\Education.dll
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.pdb
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.genruntimeconfig.cache
+C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\ref\Education.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\appsettings.Development.json
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\appsettings.json
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Education.staticwebassets.runtime.json
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Education.exe
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Education.deps.json
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Education.runtimeconfig.json
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Education.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Education.pdb
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Azure.Core.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Azure.Identity.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Castle.Core.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Proxies.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Identity.Client.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Logging.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.Drawing.Common.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.Memory.Data.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.Runtime.Caching.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.Security.Cryptography.ProtectedData.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.Security.Permissions.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.Windows.Extensions.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.csproj.AssemblyReference.cache
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.AssemblyInfoInputs.cache
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.AssemblyInfo.cs
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.csproj.CoreCompileInputs.cache
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.MvcApplicationPartsAssemblyInfo.cache
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.RazorAssemblyInfo.cache
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.RazorAssemblyInfo.cs
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\staticwebassets\msbuild.Education.Microsoft.AspNetCore.StaticWebAssets.props
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\staticwebassets\msbuild.build.Education.props
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Education.props
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.Education.props
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\staticwebassets.pack.json
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\staticwebassets.build.json
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\staticwebassets.development.json
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\scopedcss\bundle\Education.styles.css
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\scopedcss\projectbundle\Education.bundle.scp.css
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.csproj.CopyComplete
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\refint\Education.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.pdb
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.genruntimeconfig.cache
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\ref\Education.dll
