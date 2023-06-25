@@ -1,4 +1,4 @@
-﻿using Education.DAL.Custom_Validtion;
+﻿using Education.CustomValidtion;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Education.Models

@@ -70,6 +70,14 @@ C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\refint\Education.d
 C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.pdb
 C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\Education.genruntimeconfig.cache
 C:\Users\ayman\Downloads\Education\Education\obj\Debug\net7.0\ref\Education.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.csproj.AssemblyReference.cache
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.AssemblyInfoInputs.cache
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.AssemblyInfo.cs
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.csproj.CoreCompileInputs.cache
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.MvcApplicationPartsAssemblyInfo.cache
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.RazorAssemblyInfo.cache
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.RazorAssemblyInfo.cs
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\appsettings.Development.json
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\appsettings.json
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Education.staticwebassets.runtime.json
@@ -81,13 +89,16 @@ D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Edu
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Azure.Core.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Azure.Identity.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Castle.Core.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Humanizer.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Data.SqlClient.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Proxies.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Relational.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Identity.Client.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Identity.Client.Extensions.Msal.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Abstractions.dll
@@ -98,6 +109,8 @@ D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Mic
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.IdentityModel.Tokens.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.SqlServer.Server.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Win32.SystemEvents.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Mono.TextTemplating.dll
+D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.CodeDom.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.Drawing.Common.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.IdentityModel.Tokens.Jwt.dll
@@ -118,14 +131,6 @@ D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\run
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.csproj.AssemblyReference.cache
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.GeneratedMSBuildEditorConfig.editorconfig
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.AssemblyInfoInputs.cache
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.AssemblyInfo.cs
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.csproj.CoreCompileInputs.cache
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.MvcApplicationPartsAssemblyInfo.cache
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.RazorAssemblyInfo.cache
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.RazorAssemblyInfo.cs
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\staticwebassets\msbuild.Education.Microsoft.AspNetCore.StaticWebAssets.props
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\staticwebassets\msbuild.build.Education.props
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.Education.props
@@ -142,8 +147,3 @@ D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\ref
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.pdb
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\Education.genruntimeconfig.cache
 D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\obj\Debug\net7.0\ref\Education.dll
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Humanizer.dll
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Design.dll
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Microsoft.Extensions.DependencyModel.dll
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\Mono.TextTemplating.dll
-D:\ITI-3\ASP.NET CORE MVC\Final Project\Education\Education\bin\Debug\net7.0\System.CodeDom.dll

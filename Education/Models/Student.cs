@@ -1,6 +1,6 @@
-﻿using Education.DAL.Custom_Validtion;
+﻿using Education.CustomValidtion;   
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations.Schema; 
 
 namespace Education.Models
 {
