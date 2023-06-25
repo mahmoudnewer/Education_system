@@ -9,13 +9,13 @@ namespace Education.Models
         {
         }
 
-        DbSet<Instructor> instructors { get; set; }
-        DbSet<Student> students { get; set; }
-        DbSet<Grade> grades { get; set; }
-        DbSet<Role> roles { get; set; }
-        DbSet<StudentRequests> studentRequests { get; set; }
-        DbSet<Topic> Topics { get; set; }
-        DbSet<NewStudentData> newStudentDatas { get; set; }
+        public DbSet<Instructor> instructors { get; set; }
+        public DbSet<Student> students { get; set; }
+        public DbSet<Grade> grades { get; set; }
+        public DbSet<Role> roles { get; set; }
+        public DbSet<StudentRequests> studentRequests { get; set; }
+        public DbSet<Topic> Topics { get; set; }
+        public DbSet<NewStudentData> newStudentDatas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
