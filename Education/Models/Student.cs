@@ -17,8 +17,6 @@ namespace Education.Models
         public string? Address { get; set; }
         public byte[]? image { get; set; }
         public bool IsDeleted { set; get; }
-        public bool Confirmed { get; set; }
-
         public virtual List<Instructor_Student>? instructorStudents { get; set; } = new List<Instructor_Student>();
         public virtual List<StudentRequests>? StudentRequests { set; get; } = new List<StudentRequests>();
 
