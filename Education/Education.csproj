@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BAL\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
 </Project>

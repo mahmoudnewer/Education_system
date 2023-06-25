@@ -1,5 +1,7 @@
-using Education.DAL.DB_Context;
+using Education.Models;
+using Education.Repositories;
 using Microsoft.EntityFrameworkCore;
+using static Education.Repositories.IGenericRepository;
 
 namespace Education
 {
@@ -15,6 +17,19 @@ namespace Education
             {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("EducationConnectionString"));
             });
+
+
+            builder.Services.AddScoped<IGenericRepository<Grade>, GenericRepository<Grade>>();
+            builder.Services.AddScoped<IGenericRepository<Instructor>, GenericRepository<Instructor>>();
+            builder.Services.AddScoped<IGenericRepository<Instructor_Student>, GenericRepository<Instructor_Student>>();
+            builder.Services.AddScoped<IGenericRepository<NewStudentData>, GenericRepository<NewStudentData>>();
+            builder.Services.AddScoped<IGenericRepository<Role>, GenericRepository<Role>>();
+            builder.Services.AddScoped<IGenericRepository<Student>, GenericRepository<Student>>();
+            builder.Services.AddScoped<IGenericRepository<StudentRequests>, GenericRepository<StudentRequests>>();
+            builder.Services.AddScoped<IGenericRepository<Topic>, GenericRepository<Topic>>();
+
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
