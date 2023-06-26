@@ -1,7 +1,5 @@
 ﻿namespace Education.Repositories
 {
-    public interface IGenericRepository
-    {
         public interface IGenericRepository<T> where T : class
         {
             IQueryable<T> GetAll();
@@ -12,5 +10,5 @@
             void Delete(int id);
             void Save();
         }
-    }
+    
 }

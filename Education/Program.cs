@@ -1,7 +1,6 @@
 using Education.Models;
 using Education.Repositories;
 using Microsoft.EntityFrameworkCore;
-using static Education.Repositories.IGenericRepository;
 
 namespace Education
 {
