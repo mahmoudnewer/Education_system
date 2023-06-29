@@ -18,6 +18,7 @@ namespace Education.Models
         [DataType(DataType.Password)]
         public string Password { set; get; }
         public int? Age { set; get; }
+        [Column(TypeName = "image")]
         public byte[]? image { set; get; }
         public bool Isdeleted { set; get; }
 

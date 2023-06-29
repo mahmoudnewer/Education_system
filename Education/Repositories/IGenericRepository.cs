@@ -10,5 +10,4 @@
             void Delete(int id);
             void Save();
         }
-    
-}
+    }

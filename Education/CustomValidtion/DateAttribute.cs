@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Education.CustomValidtion
+namespace Education.DAL.Custom_Validtion
 {
     public class DateAttribute : ValidationAttribute
     {

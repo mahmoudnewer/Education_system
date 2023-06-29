@@ -1,5 +1,7 @@
 using Education.Models;
 using Education.Repositories;
+using Education.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 namespace Education
@@ -17,6 +19,7 @@ namespace Education
                 option.UseSqlServer(builder.Configuration.GetConnectionString("EducationConnectionString"));
             });
 
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
 
             builder.Services.AddScoped<IGenericRepository<Grade>, GenericRepository<Grade>>();
             builder.Services.AddScoped<IGenericRepository<Instructor>, GenericRepository<Instructor>>();
@@ -26,8 +29,7 @@ namespace Education
             builder.Services.AddScoped<IGenericRepository<Student>, GenericRepository<Student>>();
             builder.Services.AddScoped<IGenericRepository<StudentRequests>, GenericRepository<StudentRequests>>();
             builder.Services.AddScoped<IGenericRepository<Topic>, GenericRepository<Topic>>();
-
-
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
             var app = builder.Build();
 
