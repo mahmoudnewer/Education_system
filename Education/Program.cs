@@ -1,10 +1,8 @@
-using AutoMapper;
-using Education.helpers;
 using Education.Models;
 using Education.Repositories;
 using Education.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
-
 
 namespace Education
 {
@@ -20,28 +18,21 @@ namespace Education
             {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("EducationConnectionString"));
             });
-            builder.Services.AddScoped<IGenericRepository<Student>, GenericRepository<Student>>();
-            builder.Services.AddScoped<IStudentService,StudentService>();
-            builder.Services.AddScoped<INewStudentService, NewStudentService>();
-            builder.Services.AddScoped<IStudentRequestService, StudentRequestService>();
+
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IInstructorService, InstructorService>();
+            builder.Services.AddScoped<ITopicService, TopicService>();
+
+
             builder.Services.AddScoped<IGenericRepository<Grade>, GenericRepository<Grade>>();
             builder.Services.AddScoped<IGenericRepository<Instructor>, GenericRepository<Instructor>>();
             builder.Services.AddScoped<IGenericRepository<Instructor_Student>, GenericRepository<Instructor_Student>>();
             builder.Services.AddScoped<IGenericRepository<NewStudentData>, GenericRepository<NewStudentData>>();
             builder.Services.AddScoped<IGenericRepository<Role>, GenericRepository<Role>>();
+            builder.Services.AddScoped<IGenericRepository<Student>, GenericRepository<Student>>();
             builder.Services.AddScoped<IGenericRepository<StudentRequests>, GenericRepository<StudentRequests>>();
             builder.Services.AddScoped<IGenericRepository<Topic>, GenericRepository<Topic>>();
-
-            var config = new MapperConfiguration(cfg =>
-            {
-
-                cfg.AddProfile(new AutoMapperProfileConfiguration());
-            });
-
-            var mapper = config.CreateMapper();
-            builder.Services.AddSingleton(mapper);
-
-
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
             var app = builder.Build();
 
