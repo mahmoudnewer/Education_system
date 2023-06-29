@@ -9,7 +9,11 @@ namespace Education.Models
         public int Id { get; set; }
         [MinLength(3)]
         public string Name { get; set; }
+<<<<<<< HEAD
+        [Range(5, 50)]
+=======
         [Range(5,60)]
+>>>>>>> main
         public int Age { get; set; }
         [RegularExpression("^[0-9]{11,11}$", ErrorMessage = "Please enter a valid Phone number.")]
         [MinLength(7)]

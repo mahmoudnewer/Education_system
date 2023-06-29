@@ -1,0 +1,64 @@
+﻿@model List<Education.ViewModel.Lesson_infoViewModel>
+@{
+    ViewData["Title"] = "Mylesson";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card rounded ">
+                    <div class="card-body">
+                        <p class="card-title">My Lesson</p>
+                        <!--Search Date-->
+                        <form asp-action="Search_Mylesson" class="row d-flex justify-content-center align-items-center ">
+                            <div class="col-lg-3 col-md-12 ">
+                                <input type="date" name="date" class="form-control  rounded-pill">
+                            </div>
+                            <div class="col-lg-2 col-md-12">
+                                <button type="submit" class="btn btn-primary mb-3 m-2">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </form>
+                        <!--End Search Date-->
+                        <div class="row mt-3">
+                            <div class="col-md-12 ">
+                                <table class=" table m-auto   w-75" role="grid">
+                                    <thead class="bg-primary text-light rounded-pill">
+                                        <tr role="row">
+                                            <th>Number</th>
+                                            <th>Name</th>
+                                            <th>Type</th>
+                                            <th>Date</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td class=" select-checkbox">@item.Number</td>
+                                                <td>@item.Name</td>
+                                                <td>@item.Type</td>
+                                                <td>@item.Date</td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+   
+

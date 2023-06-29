@@ -15,16 +15,24 @@
     <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
           rel="stylesheet">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.4.0/css/all.css">
     <!-- Custom styles for this template-->
     <link href="/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="/css/ProfileStyle.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/feather.css">
 
 </head>
 
 <body id="page-top">
+<<<<<<< HEAD
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+=======
     <!-- Page Wrapper -->
     <div id="wrapper">
 
+>>>>>>> main
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -37,22 +45,23 @@
             </a>
 
             <hr class="sidebar-divider my-0">
-
             <li class="nav-item active">
                 <a class="nav-link" href="index.html">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
-
             <hr class="sidebar-divider">
-
-
             <li class="nav-item">
+<<<<<<< HEAD
+                <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseTwo"
+                   aria-expanded="true" aria-controls="collapseTwo">
+=======
                 <a class="nav-link collapsed "  data-target="#collapseTwo"
                    aria-expanded="true" aria-controls="collapseTwo" asp-area="" asp-controller="Student" asp-action="Index">
 
                     
+>>>>>>> main
                     <span style="font-size: 0.9em;">Students</span>
                 </a>
                
@@ -63,8 +72,6 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                    aria-expanded="true" aria-controls="collapseUtilities">
-                    <!-- <img src="./img/teacher.ico" class="rounded-circle mr-2 col-sm-12 col-md-3 col-lg-3 " alt=""> -->
-
                     <span style="font-size: 0.9em;">Instructors</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
@@ -81,13 +88,13 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#Assgined"
                    aria-expanded="true" aria-controls="collapseUtilities">
                     <!-- <i class="fas fa-fw fa-wrench"></i> -->
-                    <span style="font-size: 0.9em;">Assgined Lessons</span>
+                    <span style="font-size: 0.9em;">Lessons</span>
                 </a>
                 <div id="Assgined" class="collapse" aria-labelledby="headingUtilities"
                      data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
-
+                        <a class="collapse-item" asp-action="Mylesson" asp-controller="Lesson" asp-area="" >My Lesson</a>
+                        <a class="collapse-item" asp-action="Alllesson" asp-controller="Lesson" asp-area="">Lessons</a>
                     </div>
                 </div>
             </li>
@@ -149,12 +156,6 @@
                     <button id="sidebarToggleTop" class="btn btn-link  rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
-
-
-
-
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
@@ -164,7 +165,7 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">username</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">@User.Identity.Name</span>
                                 <img class="img-profile rounded-circle"
                                      src="/img/undraw_profile.svg">
                             </a>
@@ -172,9 +173,13 @@
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                  aria-labelledby="userDropdown">
 
-                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="LogOut">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Logout
+                                </a>
+                                <a class="dropdown-item" asp-area="" asp-controller="User" asp-action="Profile"  >
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
                                 </a>
 
                             </div>
@@ -196,6 +201,9 @@
 
             </div>
             <!-- End of Main Content -->
+<<<<<<< HEAD
+           
+=======
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -205,6 +213,7 @@
                 </div>
             </footer>
             <!-- End of Footer -->
+>>>>>>> main
 
         </div>
         <!-- End of Content Wrapper -->
