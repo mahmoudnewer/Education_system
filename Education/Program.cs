@@ -19,7 +19,10 @@ namespace Education
                 option.UseSqlServer(builder.Configuration.GetConnectionString("EducationConnectionString"));
             });
 
-            builder.Services.AddScoped<IUserRepository, UserRepository>();
+            builder.Services.AddScoped<IUserService, UserService>();
+            builder.Services.AddScoped<IInstructorService, InstructorService>();
+            builder.Services.AddScoped<ITopicService, TopicService>();
+
 
             builder.Services.AddScoped<IGenericRepository<Grade>, GenericRepository<Grade>>();
             builder.Services.AddScoped<IGenericRepository<Instructor>, GenericRepository<Instructor>>();

@@ -403,3 +403,4 @@ C:\Users\dinaa\Downloads\GP_ITI\MVC Project\Education_system\Education\bin\Debug
 C:\Users\dinaa\Downloads\GP_ITI\MVC Project\Education_system\Education\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\dinaa\Downloads\GP_ITI\MVC Project\Education_system\Education\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Users\dinaa\Downloads\GP_ITI\MVC Project\Education_system\Education\bin\Debug\net7.0\BCrypt.Net-Core.dll
+C:\Users\dinaa\Downloads\GP_ITI\MVC Project\Education_system\Education\bin\Debug\net7.0\AutoMapper.dll

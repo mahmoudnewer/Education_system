@@ -1,6 +1,7 @@
 ﻿using Education.Enums;
 using Education.Models;
 using Education.Repositories;
+using Education.Services;
 using Education.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,9 +15,9 @@ namespace Education.Controllers
     public class LessonController : Controller
     {
        
-        IGenericRepository<Instructor> instructor_repo;
-        IGenericRepository<Topic> topic_repo;
-        public LessonController(IGenericRepository<Instructor> _intructor_repo, IGenericRepository<Topic> _topic_repo)
+        IInstructorService instructor_repo;
+        ITopicService topic_repo;
+        public LessonController(IInstructorService _intructor_repo, ITopicService _topic_repo)
         {
             instructor_repo = _intructor_repo;
             topic_repo = _topic_repo;
@@ -24,7 +25,7 @@ namespace Education.Controllers
         [Authorize]
         public IActionResult Alllesson()
         {
-            var lesson = topic_repo.GetAll().Include(t=>t.instructor);
+            var lesson = topic_repo.GetAll();
             List<Lesson_infoViewModel> lesson_InfoViewModels = new List<Lesson_infoViewModel>();
             int Number = 0;
 
@@ -49,7 +50,7 @@ namespace Education.Controllers
             var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
             int Id = int.Parse(userIdClaim.Value);
 
-            var lesson = topic_repo.GetAll().Include(t => t.instructor).Where(l=>l.InstructorId==Id);
+            var lesson = topic_repo.GetAll().Where(l=>l.InstructorId==Id);
             List<Lesson_infoViewModel> lesson_InfoViewModels = new List<Lesson_infoViewModel>();
             int Number = 0;
 
@@ -83,7 +84,6 @@ namespace Education.Controllers
             {
 
                 topic_repo.Insert(topic);
-                topic_repo.Save();
                 return RedirectToAction("Alllesson");
             }
             ViewData["intructor"] = instructor_repo.GetAll();
@@ -95,7 +95,7 @@ namespace Education.Controllers
         public IActionResult Search_alllesson(DateTime date)
         {
 
-            var lesson = topic_repo.GetAll().Include(t => t.instructor).Where(i=>i.Date==date);
+            var lesson = topic_repo.GetAll().Where(i=>i.Date==date);
             List<Lesson_infoViewModel> lesson_InfoViewModels = new List<Lesson_infoViewModel>();
             int Number = 0;
 
@@ -123,7 +123,7 @@ namespace Education.Controllers
             var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
             int Id = int.Parse(userIdClaim.Value);
 
-            var lesson = topic_repo.GetAll().Include(t => t.instructor).Where(l => l.InstructorId == Id && l.Date == date);
+            var lesson = topic_repo.GetAll().Where(l => l.InstructorId == Id && l.Date == date);
             List<Lesson_infoViewModel> lesson_InfoViewModels = new List<Lesson_infoViewModel>();
             int Number = 0;
 

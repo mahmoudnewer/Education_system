@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Eb/tC2/AP4ci6M6ex/9FfDBHkNCJCEohR/wHVfBdNCpxBGAqX9jVcFEKUC3FHSsTEZWzX7L6Y00++jJCudicRg==",
+  "dgSpecHash": "kWlBRPI1W/bYhmDVsmPO04ES6ArAew4zb+EXRvIDRlOiSdrBCHjIT92pVsoieUdAot8H1vR8iKnku1kv/vchfA==",
   "success": true,
   "projectFilePath": "C:\\Users\\dinaa\\Downloads\\GP_ITI\\MVC Project\\Education_system\\Education\\Education.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\dinaa\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\dinaa\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\dinaa\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\dinaa\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
@@ -73,7 +74,7 @@
     "C:\\Users\\dinaa\\.nuget\\packages\\microsoft.codeanalysis.razor\\6.0.11\\microsoft.codeanalysis.razor.6.0.11.nupkg.sha512",
     "C:\\Users\\dinaa\\.nuget\\packages\\microsoft.codeanalysis.scripting.common\\4.4.0\\microsoft.codeanalysis.scripting.common.4.4.0.nupkg.sha512",
     "C:\\Users\\dinaa\\.nuget\\packages\\microsoft.codeanalysis.workspaces.common\\4.4.0\\microsoft.codeanalysis.workspaces.common.4.4.0.nupkg.sha512",
-    "C:\\Users\\dinaa\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\dinaa\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\dinaa\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.2\\microsoft.data.sqlclient.5.0.2.nupkg.sha512",
     "C:\\Users\\dinaa\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
     "C:\\Users\\dinaa\\.nuget\\packages\\microsoft.diasymreader\\1.4.0\\microsoft.diasymreader.1.4.0.nupkg.sha512",

@@ -1,5 +1,4 @@
-﻿using Education.Repositories;
-using Education.Models;
+﻿using Education.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
@@ -14,9 +13,9 @@ namespace Education.Controllers
 {
     public class UserController : Controller
     {
-        IUserRepository userrepository;
-        IGenericRepository<Instructor> instructorRepository;
-        public UserController(IUserRepository _userrepository, IGenericRepository<Instructor> _instructorRepository)
+        IUserService userrepository;
+        IInstructorService instructorRepository;
+        public UserController(IUserService _userrepository, IInstructorService _instructorRepository)
         {
             userrepository = _userrepository;
             instructorRepository = _instructorRepository;
