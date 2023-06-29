@@ -17,6 +17,7 @@ namespace Education.Models
 
         [DataType(DataType.Password)]
         public string Password { set; get; }
+
         [Compare("Password")]
         [NotMapped]
         [DataType(DataType.Password)]
