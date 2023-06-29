@@ -1,0 +1,72 @@
+﻿@using Education.Models
+@model Instructor
+@{
+    ViewData["Title"] = "Edit";
+    SelectList roleItems = new SelectList(ViewBag.RoleList, "Id", "Name");
+}
+<h1>Edit Instructor</h1>
+<form method="post">
+    <div>
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input class="form-control" asp-for="Email"  />
+    </div>
+    <div>
+        <label asp-for="Phone"></label>
+        <input class="form-control" asp-for="Phone"  />
+    </div>
+    <div>
+        <label asp-for="Address"></label>
+        <input class="form-control" asp-for="Address"  />
+    </div>
+    <div>
+        <label asp-for="image"></label>
+        <input id="txtViewer" type="file" value="Upload Image" class="form-control" asp-for="image" />
+        @if (@Model.image?.Length > 0)
+        {
+            <p>Old Image</p>
+            <img width="200" height="200" src="data:image/jpg;base64,@Convert.ToBase64String(Model.image)" />
+        }
+        else
+        {
+            <p>Not Found</p>
+        }
+        <img id="imgViewer" width="200" height="200" />     
+    </div>
+    <div>
+        <label asp-for="Age"></label>
+        <input class="form-control" asp-for="Age" />
+
+    </div>
+    <div>
+        <label asp-for="RoleId">Role</label>
+        <select class="form-control" asp-for="RoleId" asp-items="roleItems"></select>
+    </div>
+    <input type="submit" value="Save Instructor" class="btn btn-success" asp-action="Index"/>
+</form>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script type="text/javascript">
+    $("#txtViewer").change(function (event) {
+        var files = event.target.files;
+        $("#imgViewer").attr("src", window.URL.createObjectURL(files[0]));
+    });
+    $("#btnSave").click(function () {
+        var files = $("#txtViewer").prop("files");
+        var formData = new FormData();
+        for (var i = 0; i < files.lenght; i++) {
+            formData.append("file", files[i]);
+        }
+        $.ajax({
+            type: 'GET',
+            success: function (data) {
+                $("#imgViewer").attr("src", "data:image/jpg;base64," + data.image + "")
+            }
+        })
+    })
+</script>
+

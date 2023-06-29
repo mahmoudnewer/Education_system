@@ -17,8 +17,16 @@ namespace Education.Models
 
         [DataType(DataType.Password)]
         public string Password { set; get; }
+
+        [Compare("Password")]
+        [NotMapped]
+        [DataType(DataType.Password)]
+        public string confirmPassword { get; set; }
         public int? Age { set; get; }
         public byte[]? image { set; get; }
+
+        //public IFormFile ImageFile;
+
         public bool Isdeleted { set; get; }
 
         [ForeignKey("role")]
