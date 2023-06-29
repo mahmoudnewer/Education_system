@@ -32,6 +32,7 @@ namespace Education
             builder.Services.AddScoped<IGenericRepository<StudentRequests>, GenericRepository<StudentRequests>>();
             builder.Services.AddScoped<IGenericRepository<Topic>, GenericRepository<Topic>>();
 
+
             var config = new MapperConfiguration(cfg =>
             {
 
