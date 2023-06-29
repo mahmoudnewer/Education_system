@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using static Education.Repositories.IGenericRepository;
 using Education.Models;
 
 namespace Education.Repositories
@@ -51,5 +50,7 @@ namespace Education.Repositories
 
             return entity;
         }
+
+      
     }
 }
