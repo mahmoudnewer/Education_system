@@ -1,0 +1,42 @@
+﻿@using Education.Models
+@model IEnumerable<Instructor>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<table class="table tab">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Address</th>
+        <th>Age</th>
+        <th>Image</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>@item.Phone</td>
+            <td>@item.Address</td>
+            <td>@item.Age</td>
+            <td>
+                @if (item.image?.Length > 0)
+                {
+                    <img class="w-50" src="data:image/jpg;base64,@Convert.ToBase64String(item.image)" />
+                }
+                else
+                {
+                    <p>Not Found</p>
+                }
+            </td>
+            <td><a href="/Instructor/Edit/@item.Id" class="btn btn-primary">Edit</a></td>
+            <td><a href="/Instructor/Delete/@item.Id" class="btn btn-danger">Delete</a></td>
+        </tr>
+    }
+</table>
+<a href="/Instructor/New" class="btn btn-success">New</a>

@@ -1,7 +1,7 @@
 using Education.Models;
 using Education.Repositories;
+using Education.Services;
 using Microsoft.EntityFrameworkCore;
-using static Education.Repositories.IGenericRepository;
 
 namespace Education
 {
@@ -27,6 +27,8 @@ namespace Education
             builder.Services.AddScoped<IGenericRepository<Student>, GenericRepository<Student>>();
             builder.Services.AddScoped<IGenericRepository<StudentRequests>, GenericRepository<StudentRequests>>();
             builder.Services.AddScoped<IGenericRepository<Topic>, GenericRepository<Topic>>();
+
+            builder.Services.AddScoped<IInstructorService,InstructorService>();
 
 
 

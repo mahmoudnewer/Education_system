@@ -1,23 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ITI-3\\ASP.NET CORE MVC\\Final Project\\Education\\Education\\Education.csproj": {}
+    "F:\\Self Study\\Post Grad\\ITI DotNet Track\\Training\\ITI Projects\\MVC Project\\Education_system\\Education\\Education.csproj": {}
   },
   "projects": {
-    "D:\\ITI-3\\ASP.NET CORE MVC\\Final Project\\Education\\Education\\Education.csproj": {
+    "F:\\Self Study\\Post Grad\\ITI DotNet Track\\Training\\ITI Projects\\MVC Project\\Education_system\\Education\\Education.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ITI-3\\ASP.NET CORE MVC\\Final Project\\Education\\Education\\Education.csproj",
+        "projectUniqueName": "F:\\Self Study\\Post Grad\\ITI DotNet Track\\Training\\ITI Projects\\MVC Project\\Education_system\\Education\\Education.csproj",
         "projectName": "Education",
-        "projectPath": "D:\\ITI-3\\ASP.NET CORE MVC\\Final Project\\Education\\Education\\Education.csproj",
-        "packagesPath": "C:\\Users\\neuer\\.nuget\\packages\\",
-        "outputPath": "D:\\ITI-3\\ASP.NET CORE MVC\\Final Project\\Education\\Education\\obj\\",
+        "projectPath": "F:\\Self Study\\Post Grad\\ITI DotNet Track\\Training\\ITI Projects\\MVC Project\\Education_system\\Education\\Education.csproj",
+        "packagesPath": "C:\\Users\\lenovo\\.nuget\\packages\\",
+        "outputPath": "F:\\Self Study\\Post Grad\\ITI DotNet Track\\Training\\ITI Projects\\MVC Project\\Education_system\\Education\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\neuer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\lenovo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +27,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
+          "C:\\Program Files\\dotnet\\sdk\\7.0.302\\Sdks\\Microsoft.NET.Sdk.Web\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -45,6 +46,14 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "BCrypt.Net": {
+              "target": "Package",
+              "version": "[0.1.0, )"
+            },
+            "Microsoft.AspNet.WebHelpers": {
+              "target": "Package",
+              "version": "[3.2.9, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.8, )"
@@ -62,6 +71,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[7.0.8, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[7.0.7, )"
             }
           },
           "imports": [
@@ -83,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

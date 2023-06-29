@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using static Education.Repositories.IGenericRepository;
+using  Education.Repositories;
 using Education.Models;
 
 namespace Education.Repositories
@@ -9,7 +9,7 @@ namespace Education.Repositories
 
         private DBContext _context = null;
         private DbSet<T> table = null;
-
+        //public Guid Id { get; set; }
         public GenericRepository(DBContext _context)
         {
             this._context = _context;

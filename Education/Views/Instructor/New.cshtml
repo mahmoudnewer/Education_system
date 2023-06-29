@@ -1,0 +1,90 @@
+﻿@using Education.Models
+@model Instructor
+@{
+    ViewData["Title"] = "New";
+    //Layout = "_Layout";
+    SelectList roleItems = new SelectList(ViewBag.RoleList, "Id", "Name");
+}
+
+<h1>New</h1>
+<form method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div>
+        <label asp-for="Name"></label>
+        <input class="form-control" asp-for="Name" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Email"></label>
+        <input class="form-control" asp-for="Email" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input class="form-control" asp-for="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="confirmPassword"></label>
+        <input class="form-control" asp-for="confirmPassword" />
+        <span asp-validation-for="confirmPassword" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Phone"></label>
+        <input class="form-control" asp-for="Phone" />
+        <span asp-validation-for="Phone" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Address"></label>
+        <input class="form-control" asp-for="Address" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div>
+        <!-- 
+        <label asp-for="Age"></label>
+        <input class="form-control" asp-for="Age" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+        -->
+        <label asp-for="image"></label>
+        <input id="txtViewer" type="file" value="Upload Image" class="form-control" asp-for="image"/>
+        <img id="imgViewer" width="200" height="200" />
+    </div>
+    <div>
+        <label asp-for="Age"></label>
+        <input class="form-control" asp-for="Age" />
+        <span asp-validation-for="Age" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="RoleId">Role</label>
+        <select class="form-control" asp-for="RoleId" asp-items="roleItems"></select>
+    </div>
+    <input type="submit" value="Create" class="btn btn-primary" id="btnSave"/>
+</form>
+<a asp-action="Index">Back to List</a>
+<!--jQuery Libs//Client Side Validation-->
+<!--Show error message when you leave field-->
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+<script type="text/javascript">
+    $("#txtViewer").change(function(event){
+        var files=event.target.files;
+        $("#imgViewer").attr("src",window.URL.createObjectURL(files[0]));
+    });
+    $("#btnSave").click(function(){
+        var files = $("#txtViewer").prop("files");
+        var formData=new FormData();
+        for(var i=0;i<files.lenght;i++){
+            formData.append("file",files[i]);
+        }
+        $.ajax({
+            type:'GET',
+            success:function(data){
+                $("#imgViewer").attr("src","data:image/jpg;base64,"+data.image+"")
+            }
+        })
+    })
+</script>
+
