@@ -24,9 +24,15 @@
 </head>
 
 <body id="page-top">
+<<<<<<< HEAD
 
     <!-- Page Wrapper -->
     <div id="wrapper">
+=======
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+>>>>>>> main
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
@@ -47,16 +53,18 @@
             </li>
             <hr class="sidebar-divider">
             <li class="nav-item">
+<<<<<<< HEAD
                 <a class="nav-link collapsed " href="#" data-toggle="collapse" data-target="#collapseTwo"
                    aria-expanded="true" aria-controls="collapseTwo">
+=======
+                <a class="nav-link collapsed "  data-target="#collapseTwo"
+                   aria-expanded="true" aria-controls="collapseTwo" asp-area="" asp-controller="Student" asp-action="Index">
+
+                    
+>>>>>>> main
                     <span style="font-size: 0.9em;">Students</span>
                 </a>
-                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
+               
             </li>
             <hr class="sidebar-divider">
 
@@ -182,7 +190,7 @@
                 </nav>
                 <!-- End of Topbar -->
                 <!-- Begin Page Content -->
-                <div class="container-fluid">
+                <div class="container-fluid d-flex flex-column ">
                     @RenderBody()
 
 
@@ -193,7 +201,19 @@
 
             </div>
             <!-- End of Main Content -->
+<<<<<<< HEAD
            
+=======
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy;  2023</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+>>>>>>> main
 
         </div>
         <!-- End of Content Wrapper -->
@@ -237,6 +257,8 @@
 
     <!-- Page level plugins -->
     @await RenderSectionAsync("Scripts", required: false)
+  
+
 
 </body>
 

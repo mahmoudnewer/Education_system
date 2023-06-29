@@ -1,0 +1,73 @@
+﻿@model List<Student>
+@{
+    ViewData["Title"] = "Index";
+  
+}
+
+<a asp-action="New" class="btn btn-primary d-flex align-self-end mb-4">Add</a>
+<table class=" table table-bordered table-hover ">
+    <thead class="text-center">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th> Phone</th>
+            <th>Address</th>
+            <th>image</th>
+            <th>Action</th>
+
+        </tr>
+
+    </thead>
+   
+    
+    @foreach (Student student in Model ?? Enumerable.Empty<Student>())
+    {
+        <tr>
+            <td>@student?.Name</td>
+            <td>@student?.Age</td>
+            <td>@student?.Phone</td>
+            <td>@student?.Address</td>
+            <td class="text-center" style="width:15%" >
+                @if (student.image?.Length>0)
+                {
+                    <img class="w-50" src="data:image/jpeg;base64,@Convert.ToBase64String(student.image)" />
+                }else
+                {
+                    <p>No Image</p>
+                }
+                </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@student.Id" class="btn btn-success">Edit</a>
+                <a  class="btn btn-danger delete-button" data-id="@student.Id">Delete</a>
+                
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section Scripts 
+{
+    <partial name="_ValidationScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/alertify.min.js" integrity="sha512-JnjG+Wt53GspUQXQhc+c4j8SBERsgJAoHeehagKHlxQN+MtCCmFDghX9/AcbkkNRZptyZU4zC8utK59M5L45Iw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/AlertifyJS/1.13.1/css/alertify.min.css" integrity="sha512-IXuoq1aFd2wXs4NqGskwX2Vb+I8UJ+tGJEu/Dc0zwLNKeQ7CW3Sr6v0yU3z5OQWe3eScVIkER4J9L7byrgR/fA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script>
+        $(document).ready(function () {
+            $(".delete-button").click(function () {
+                var studentId = $(this).data("id");
+                var deleteUrl = '@Url.Action("Remove", "Student", new { id = "__id__" })'.replace('__id__', studentId);
+               
+                alertify.confirm("Confirm Deletion", "Are you sure you want to delete this student?",
+                    function () {
+                        window.location.href = deleteUrl;
+                        alertify.success('Ok');
+                    },
+                    function () {
+                        alertify.error('Cancel');
+                    });
+            });
+        });
+    </script>
+ 
+}
