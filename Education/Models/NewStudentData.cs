@@ -9,6 +9,7 @@ namespace Education.Models
         [MinLength(3)]
         public string Name { get; set; }
         [EmailAddress(ErrorMessage = "Invalid email address")]
+        public string Email { get; set; }
         [Range(5, 50)]
         public int Age { get; set; }
         public byte[]? image { get; set; }
@@ -20,7 +21,7 @@ namespace Education.Models
         [ForeignKey("StudentRequests")]
         public int StudentReqId { get; set; }
 
-        public virtual StudentRequests? StudentRequests { get; set; } 
+        public virtual StudentRequests? StudentRequests { get; set; }
     }
 }
 

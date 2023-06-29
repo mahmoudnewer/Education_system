@@ -10,10 +10,10 @@ namespace Education.Models
         public int Id { get; set; }
         [MinLength(3)]
         public string Name { get; set; }
-        [EnumDataType(typeof(TypeAllowedValues), ErrorMessage = "Invalid Input")]
-        public string Type { get; set; } /// hardcoded
+        [EnumDataType(typeof(Topic_TypeValues), ErrorMessage = "Invalid Input")]
+        public Topic_TypeValues Type { get; set; } /// hardcoded
 
-        [Date]
+         [Date]
         public DateTime Date { get; set; }
 
         public bool IsDeleted { set; get; }
