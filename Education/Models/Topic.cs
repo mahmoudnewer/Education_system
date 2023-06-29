@@ -1,4 +1,4 @@
-﻿using Education.CustomValidtion;
+﻿using Education.DAL.Custom_Validtion;
 using Education.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;

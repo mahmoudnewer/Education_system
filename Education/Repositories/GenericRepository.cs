@@ -50,6 +50,6 @@ namespace Education.Repositories
                 _context.Entry(entity).State = EntityState.Detached;
 
             return entity;
-        }
+        }  
     }
 }
