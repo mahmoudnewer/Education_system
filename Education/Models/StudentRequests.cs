@@ -5,8 +5,7 @@ namespace Education.Models
 {
     public class StudentRequests
     {
-        public int Id { set; get; }
-      
+        public int Id { set; get; }   
         [AllowedValues(new string[] { "pending", "aceepted", "rejected" })]
         public string Status { get; set; }
 

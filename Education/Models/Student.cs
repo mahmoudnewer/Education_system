@@ -16,8 +16,7 @@ namespace Education.Models
         public string Phone { get; set; }
         public string? Address { get; set; }
         public bool  confirm { get; set; } 
-        public byte[]? image { get; set; }
-       
+        public byte[]? image { get; set; } 
         [NotMapped]
         public IFormFile ?ImageFile { get; set; }
         public bool IsDeleted { set; get; }
