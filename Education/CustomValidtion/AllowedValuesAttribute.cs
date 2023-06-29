@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Eventing.Reader;
 
-namespace Education.CustomValidtion
+namespace Education.DAL.Custom_Validtion
 {
     public class AllowedValuesAttribute: ValidationAttribute
     {

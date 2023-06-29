@@ -1,4 +1,4 @@
-﻿using Education.CustomValidtion;
+﻿using Education.DAL.Custom_Validtion;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Education.Models
@@ -6,7 +6,7 @@ namespace Education.Models
     public class StudentRequests
     {
         public int Id { set; get; }
-
+      
         [AllowedValues(new string[] { "pending", "aceepted", "rejected" })]
         public string Status { get; set; }
 
