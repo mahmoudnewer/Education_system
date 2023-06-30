@@ -23,6 +23,10 @@ namespace Education.Models
                 .Property(g => g.grade)
                 .HasColumnType("decimal(18, 2)");
 
+            /*modelBuilder.Entity<Instructor>()
+               .Property(i => i.image)
+               .HasColumnType("varbinary(max)");*/
+
             modelBuilder.Entity<Instructor_Student>()
                 .HasKey(e => new { e.Student_Id, e.Instructor_Id });
 
