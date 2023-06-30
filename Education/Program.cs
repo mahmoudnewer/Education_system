@@ -5,6 +5,7 @@ using Education.Repositories;
 using Education.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 
 
 namespace Education
@@ -19,7 +20,9 @@ namespace Education
             builder.Services.AddControllersWithViews();
             builder.Services.AddDbContext<DBContext>(option =>
             {
+               
                 option.UseSqlServer(builder.Configuration.GetConnectionString("EducationConnectionString"));
+                
             });
             builder.Services.AddScoped<IGenericRepository<Student>, GenericRepository<Student>>();
             builder.Services.AddScoped<IStudentService,StudentService>();
@@ -36,20 +39,19 @@ namespace Education
             builder.Services.AddScoped<IGenericRepository<Student>, GenericRepository<Student>>();
             builder.Services.AddScoped<IGenericRepository<StudentRequests>, GenericRepository<StudentRequests>>();
             builder.Services.AddScoped<IGenericRepository<Topic>, GenericRepository<Topic>>();
-			builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
-            builder.Services.AddScoped<IInstructorService,InstructorService>();
+            builder.Services.AddScoped<IInstructorService, InstructorService>();
+            builder.Services.AddScoped<IRoleService, RoleService>();
+            builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
-            builder.Services.AddScoped<IInstructorService,InstructorService>();
 
-            
-			var config = new MapperConfiguration(cfg =>
+            var config = new MapperConfiguration(cfg =>
             {
 
                 cfg.AddProfile(new AutoMapperProfileConfiguration());
             });
 
             var mapper = config.CreateMapper();
-            builder.Services.AddSingleton(mapper);
+            //builder.Services.AddSingleton(mapper);
 
 
 

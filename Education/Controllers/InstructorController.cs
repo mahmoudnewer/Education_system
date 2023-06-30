@@ -1,23 +1,23 @@
 ﻿using Education.Models;
-using Education.Repositories;
 using Education.Services;
 using Microsoft.AspNetCore.Mvc;
 //using Microsoft.Web.Helpers;
 using Newtonsoft.Json;
+using System.Security.Claims;
 
 namespace Education.Controllers
 {
     public class InstructorController : Controller
     {
         IInstructorService _InstructorService=null;
-        IGenericRepository<Role> roleGeneric;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-        public InstructorController(IInstructorService instructorService, IGenericRepository<Role> role, IWebHostEnvironment webHostEnvironment)
+        private readonly IRoleService _RoleService;
+     
+        public InstructorController(IInstructorService instructorService, IRoleService RoleService)
         {
             //instructorGeneric = instructor;
             this._InstructorService = instructorService;
-            roleGeneric = role;
-            _webHostEnvironment = webHostEnvironment;
+            _RoleService = RoleService;
+           
         }
         public IActionResult Index()
         {
@@ -27,14 +27,14 @@ namespace Education.Controllers
 
         IActionResult getRoleByInstructor(Instructor instructor)
         {
-            Role roles = roleGeneric.GetById(instructor.RoleId);
+            Role roles = _RoleService.GetById(instructor.RoleId);
             return Json(roles);
 
         }
 
         public IActionResult New()
         {
-            ViewData["RoleList"] = roleGeneric.GetAll();
+            ViewData["RoleList"] = _RoleService.GetAll();
             return View();
         }
 
@@ -66,7 +66,7 @@ namespace Education.Controllers
                     ModelState.AddModelError("", e.Message);
                 }
             }
-            ViewData["RoleList"] = roleGeneric.GetAll();
+            ViewData["RoleList"] = _RoleService.GetAll();
             return View(_instructor);
         }
         [HttpPost]
@@ -98,20 +98,45 @@ namespace Education.Controllers
         public IActionResult Edit(int id)
         {
             Instructor instructor = _InstructorService.GetById(id);
-            ViewData["RoleList"] = roleGeneric.GetAll();
+            ViewData["RoleList"] = _RoleService.GetAll();
+            ViewBag.EncryptedPassword = instructor.Password;
             return View(instructor);
         }
         [HttpPost]
-        public IActionResult Edit(Instructor instructor)
+        [ValidateAntiForgeryToken]
+        public IActionResult Edit(Instructor instructor, IFormFile? imageFile)
         {
             try
             {
+                if (imageFile != null && imageFile.Length > 0)
+                {
+                    using (var memoryStream = new MemoryStream())
+                    {
+                        imageFile.CopyTo(memoryStream);
+                        instructor.image = memoryStream.ToArray();
+                    }
+                }
+               
+                ModelState.Remove("ConfirmPassword");
+                ModelState.Remove("Password");
                 if (ModelState.IsValid == true)//Server Side Check
                 {
-                    instructor.Isdeleted = false;
-                    instructor.Password = BCrypt.Net.BCrypt.HashPassword(instructor.Password);
-                    _InstructorService.Update(instructor);
+                   
+                    var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+                    int Id = int.Parse(userIdClaim.Value);
+                    string password = _InstructorService.GetById(Id).Password;
+                    instructor.Password = password;
+
+                    //_InstructorService.Update(instructor);
                     _InstructorService.Save();
+                    if (Id == instructor.Id)
+                    {
+                        //instructor.Id = Id;
+                     
+                        return RedirectToAction("Profile", "Account");
+                    }
+
+                   
                     return RedirectToAction("Index");
                 }
             }
@@ -119,7 +144,7 @@ namespace Education.Controllers
             {
                 ModelState.AddModelError("", e.InnerException.Message);
             }
-            ViewData["RoleList"] = roleGeneric.GetAll();
+            ViewData["RoleList"] = _RoleService.GetAll();
             return View(instructor);
         }
         public IActionResult Delete(int id)

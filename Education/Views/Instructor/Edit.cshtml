@@ -5,7 +5,7 @@
     SelectList roleItems = new SelectList(ViewBag.RoleList, "Id", "Name");
 }
 <h1>Edit Instructor</h1>
-<form method="post">
+<form method="post" asp-action="Edit" asp-controller="instructor" enctype="multipart/form-data">
     <div>
         <label asp-for="Name"></label>
         <input class="form-control" asp-for="Name" />
@@ -14,7 +14,7 @@
         <label asp-for="Email"></label>
         <input class="form-control" asp-for="Email"  />
     </div>
-    <div>
+  <div>
         <label asp-for="Phone"></label>
         <input class="form-control" asp-for="Phone"  />
     </div>
@@ -24,7 +24,7 @@
     </div>
     <div>
         <label asp-for="image"></label>
-        <input id="txtViewer" type="file" value="Upload Image" class="form-control" asp-for="image" />
+        <input id="txtViewer" type="file"  class="form-control"  name="imageFile" />
         @if (@Model.image?.Length > 0)
         {
             <p>Old Image</p>
@@ -45,7 +45,7 @@
         <label asp-for="RoleId">Role</label>
         <select class="form-control" asp-for="RoleId" asp-items="roleItems"></select>
     </div>
-    <input type="submit" value="Save Instructor" class="btn btn-success" asp-action="Index"/>
+    <button type="submit"  class="btn btn-success" >Edit</button>
 </form>
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>

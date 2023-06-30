@@ -1,17 +1,30 @@
-﻿<div class="container">
+﻿@model Education.ViewModel.ProfileViewModel
+
+@{
+    ViewData["Title"] = "Profile";
+    string imgSrc = "https://bootdey.com/img/Content/avatar/avatar7.png";
+    if (Model.image!=null)
+    {
+        // need to test
+        string base64String = Convert.ToBase64String(Model.image);
+        imgSrc = string.Format("data:image/bmp;base64,{0}", base64String);
+    }
+}
+
+<div class="container" id="ProfileCard">
     <div class="main-body">
         <div class="row gutters-sm">
             <div class="col-md-4 mb-3">
                 <div class="card">
                     <div class="card-body">
                         <div class="d-flex flex-column align-items-center text-center">
-                            <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                            <img src=@imgSrc alt="Admin" class="rounded-circle" width="150">
                             <div class="mt-3">
-                                <h4>John Doe</h4>
-                                <p class="text-secondary mb-1">Role:Admin</p>
-                                <p class="text-muted font-size-sm">Address</p>
-                                <button class="btn btn-primary">Back</button>
-                                <button class="btn btn-outline-primary">Edit</button>
+                                <h4>@Model.Name</h4>
+                                <p class="text-secondary mb-1">@Model.Role</p>
+                                <p class="text-muted font-size-sm">@Model.Address</p>
+                               
+                                <a class="btn btn-outline-primary" asp-action="Edit" asp-controller="instructor" asp-route-id="@Model.Id">Edit</a>
 
                             </div>
                         </div>
@@ -27,7 +40,7 @@
                                 <h6 class="mb-0">Full Name</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Kenneth Valdez
+                               @Model.Name
                             </div>
                         </div>
 
@@ -37,7 +50,7 @@
                                 <h6 class="mb-0">Role</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Admin
+                                @Model.Role
                             </div>
                         </div>
                         <hr>
@@ -46,7 +59,7 @@
                                 <h6 class="mb-0">Email</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                fip@jukmuh.al
+                               @Model.Email
                             </div>
                         </div>
                         <hr>
@@ -55,7 +68,7 @@
                                 <h6 class="mb-0">Phone</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                (239) 816-9029
+                               @Model.Phone
                             </div>
                         </div>
                         <hr>
@@ -64,7 +77,7 @@
                                 <h6 class="mb-0">Age</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                12 years old
+                                @Model.Age years old
                             </div>
                         </div>
                         <hr>
@@ -73,19 +86,15 @@
                                 <h6 class="mb-0">Address</h6>
                             </div>
                             <div class="col-sm-9 text-secondary">
-                                Bay Area, San Francisco, CA
+                               @Model.Address
                             </div>
                         </div>
-
-
                     </div>
                 </div>
-
-
-
-
             </div>
-        </div>
 
+        </div>
     </div>
-</div>/html>
+</div>
+
+

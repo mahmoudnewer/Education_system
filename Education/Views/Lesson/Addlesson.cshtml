@@ -37,7 +37,7 @@
                         </div>
                         <div class="col-lg-5 col-md-12 p-3 m-auto ">
                             <label asp-for="Date">Date</label>
-                            <input  asp-for="Date"  class="form-control rounded border-primary"   placeholder="name">
+                            <input asp-for="Date" class="form-control rounded border-primary" placeholder="name" value="@DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss")">
                             <span asp-validation-for="Date" class="text-danger"></span>
                         </div>
                         <div class="col-md-12 mt-5 mx-2 d-flex justify-content-center">

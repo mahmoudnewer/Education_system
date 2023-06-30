@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Diagnostics.CodeAnalysis;
 
 namespace Education.Models
 {
@@ -24,6 +25,7 @@ namespace Education.Models
         public string confirmPassword { get; set; }
         public int? Age { set; get; }
         [Column(TypeName = "image")]
+        
         public byte[]? image { set; get; }
 
         //public IFormFile ImageFile;

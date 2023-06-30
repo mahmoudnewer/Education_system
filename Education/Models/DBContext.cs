@@ -7,6 +7,7 @@ namespace Education.Models
     {
         public DBContext(DbContextOptions<DBContext> options) : base(options)
         {
+            
         }
 
         public DbSet<Instructor> instructors { get; set; }
@@ -26,7 +27,7 @@ namespace Education.Models
             /*modelBuilder.Entity<Instructor>()
                .Property(i => i.image)
                .HasColumnType("varbinary(max)");*/
-
+          
             modelBuilder.Entity<Instructor_Student>()
                 .HasKey(e => new { e.Student_Id, e.Instructor_Id });
 

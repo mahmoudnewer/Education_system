@@ -11,6 +11,6 @@ namespace Education.Services
         void Update(Instructor instructor);
         void Delete(int id);
         void Save();
-        Instructor GetInstructorSaved();
+        void UpdatePassword(int instructorId,string NewPassword);
     }
 }

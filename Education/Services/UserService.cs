@@ -6,16 +6,18 @@ namespace Education.Services
 {
     public class UserService : IUserService
     {
-        private readonly IGenericRepository<Instructor> _iInstructorRepository;
+        private readonly IInstructorService _IInstructorService;
+        private readonly IRoleService _IRoleService;
 
-        public UserService(IGenericRepository<Instructor> iInstructorRepository)
+        public UserService(IInstructorService iInstructorService, IRoleService IRoleService)
         {
-            _iInstructorRepository = iInstructorRepository;
+            _IInstructorService = iInstructorService;
+            _IRoleService = IRoleService;
         }
 
         public bool Find(string email, string password)
         {
-            Instructor user = _iInstructorRepository.GetAll().FirstOrDefault(a => a.Email == email && a.Password == password);
+            Instructor user = _IInstructorService.GetAll().FirstOrDefault(a => a.Email == email && a.Password == password);
             if (user == null)
             {
                 return false;
@@ -25,13 +27,13 @@ namespace Education.Services
 
         public Instructor Get(string email, string password)
         {
-            return _iInstructorRepository.GetAll().FirstOrDefault(a => a.Email == email && a.Password == password);
+            return _IInstructorService.GetAll().FirstOrDefault(a => a.Email == email && a.Password == password);
         }
 
         public string GetRole(int id)
         {
-            Instructor user = _iInstructorRepository.GetAll().FirstOrDefault(a => a.Id == id);
-            return user.role.Name;
+            return _IRoleService.GetById(id).Name;
+            
         }
 
 

@@ -8,11 +8,10 @@ namespace Education.Services
     public class InstructorService : IInstructorService
     {
         IGenericRepository<Instructor> _instructorRepository;
-        private DbSet<Instructor> table = null;
-        private DBContext _context = null;
-        public InstructorService(IGenericRepository<Instructor> _instructorRepository)
+       
+        public InstructorService(IGenericRepository<Instructor> instructorRepository)
         {
-            this._instructorRepository = _instructorRepository;
+            _instructorRepository = instructorRepository;
         }
         public void Delete(int id)
         {
@@ -34,11 +33,6 @@ namespace Education.Services
             return _instructorRepository.GetByIdAsNoTracking(id);
         }
 
-        public Instructor GetInstructorSaved()
-        {
-            return _context.instructors.SingleOrDefault();
-        }
-
         public Instructor Insert(Instructor instructor)
         {
             _instructorRepository.Insert(instructor);
@@ -53,6 +47,15 @@ namespace Education.Services
         public void Update(Instructor instructor)
         {
             _instructorRepository.Update(instructor);
+            _instructorRepository.Save();
+        }
+
+        public void UpdatePassword(int instructorId,string NewPassword)
+        {
+            var instructor=_instructorRepository.GetById(instructorId);
+            instructor.Password = NewPassword;
+            _instructorRepository.Update(instructor);
+            _instructorRepository.Save();
         }
     }
 }
