@@ -28,8 +28,19 @@ namespace Education.Repositories
             table.Add(obj);
         }
         public void Update(T obj)
-        {  
-            table.Attach(obj);
+        {
+
+            var entry = _context.Entry(obj);
+            if (entry.State == EntityState.Detached)
+            {
+                table.Attach(obj);
+            }
+            else
+            {
+                entry.State = EntityState.Detached;
+                table.Attach(obj);
+            }
+           
             _context.Entry(obj).State = EntityState.Modified;
         }
         public void Delete(int id)

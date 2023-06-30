@@ -3,6 +3,7 @@ using Education.Services;
 using Microsoft.AspNetCore.Mvc;
 //using Microsoft.Web.Helpers;
 using Newtonsoft.Json;
+using System.Buffers.Text;
 using System.Security.Claims;
 
 namespace Education.Controllers
@@ -25,6 +26,16 @@ namespace Education.Controllers
             return View(instructors);
         }
 
+        //public IActionResult ShowImage()
+        //{
+        //    var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+        //    int Id = int.Parse(userIdClaim.Value);
+        //    var instructorImage = _InstructorService.GetById(Id).image;
+        //    string base64Image = Convert.ToBase64String(instructorImage);
+        //    string imageSrc = $"data:image/jpeg;base64,{base64Image}";
+        //    return Content(imageSrc, "image/jpeg");
+            
+        //}
         IActionResult getRoleByInstructor(Instructor instructor)
         {
             Role roles = _RoleService.GetById(instructor.RoleId);
@@ -126,13 +137,10 @@ namespace Education.Controllers
                     int Id = int.Parse(userIdClaim.Value);
                     string password = _InstructorService.GetById(Id).Password;
                     instructor.Password = password;
-
-                    //_InstructorService.Update(instructor);
-                    _InstructorService.Save();
+                    _InstructorService.GetByIdAsNoTracking(Id);
+                    _InstructorService.Update(instructor);
                     if (Id == instructor.Id)
                     {
-                        //instructor.Id = Id;
-                     
                         return RedirectToAction("Profile", "Account");
                     }
 

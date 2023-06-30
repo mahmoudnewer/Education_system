@@ -25,6 +25,7 @@ namespace Education
                 
             });
             builder.Services.AddScoped<IGenericRepository<Student>, GenericRepository<Student>>();
+           
             builder.Services.AddScoped<IStudentService,StudentService>();
             builder.Services.AddScoped<INewStudentService, NewStudentService>();
             builder.Services.AddScoped<IStudentRequestService, StudentRequestService>();
@@ -36,10 +37,8 @@ namespace Education
             builder.Services.AddScoped<IGenericRepository<Instructor_Student>, GenericRepository<Instructor_Student>>();
             builder.Services.AddScoped<IGenericRepository<NewStudentData>, GenericRepository<NewStudentData>>();
             builder.Services.AddScoped<IGenericRepository<Role>, GenericRepository<Role>>();
-            builder.Services.AddScoped<IGenericRepository<Student>, GenericRepository<Student>>();
             builder.Services.AddScoped<IGenericRepository<StudentRequests>, GenericRepository<StudentRequests>>();
             builder.Services.AddScoped<IGenericRepository<Topic>, GenericRepository<Topic>>();
-            builder.Services.AddScoped<IInstructorService, InstructorService>();
             builder.Services.AddScoped<IRoleService, RoleService>();
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
 
@@ -51,7 +50,7 @@ namespace Education
             });
 
             var mapper = config.CreateMapper();
-            //builder.Services.AddSingleton(mapper);
+            builder.Services.AddSingleton(mapper);
 
 
 

@@ -95,7 +95,13 @@ namespace Education.Controllers
         public IActionResult Search_alllesson(DateTime date)
         {
 
-            var lesson = topic_repo.GetAll().Where(i=>i.Date==date);
+            var lesson = topic_repo.GetAll().Where(i => i.Date == date).ToList();
+
+            if (lesson.Count == 0)
+            {
+                TempData["NoData"] = "No data found.";
+                return RedirectToAction("alllesson");
+            }
             List<Lesson_infoViewModel> lesson_InfoViewModels = new List<Lesson_infoViewModel>();
             int Number = 0;
 
@@ -111,20 +117,27 @@ namespace Education.Controllers
                     InstructorName = item.instructor.Name
                 });
             }
-           
-            return View("alllesson",lesson_InfoViewModels);
+
+
+            return View("alllesson", lesson_InfoViewModels);
         }
 
         [Authorize]
         [HttpPost]
         public IActionResult Search_Mylesson(DateTime date)
         {
-         
+
             var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
             int Id = int.Parse(userIdClaim.Value);
 
-            var lesson = topic_repo.GetAll().Where(l => l.InstructorId == Id && l.Date == date);
+            var lesson = topic_repo.GetAll().Where(l => l.InstructorId == Id && l.Date == date).ToList();
+            if (lesson.Count == 0)
+            {
+                TempData["NoData"] = "No data found.";
+                return RedirectToAction("mylesson");
+            }
             List<Lesson_infoViewModel> lesson_InfoViewModels = new List<Lesson_infoViewModel>();
+
             int Number = 0;
 
             foreach (var item in lesson)
@@ -139,7 +152,7 @@ namespace Education.Controllers
                 });
             }
 
-            return View("mylesson",lesson_InfoViewModels);
+            return View("mylesson", lesson_InfoViewModels);
         }
     }
 }

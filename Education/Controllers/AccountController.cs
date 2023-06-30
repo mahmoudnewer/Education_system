@@ -69,32 +69,35 @@ namespace Education.Controllers
         [HttpPost]
         public IActionResult Login(User_ViewModel user)
         {
-            try
+            Instructor instructor = InstructorService.GetAll().FirstOrDefault(i => i.Email == user.Email);
+            if (instructor == null)
             {
-                string hashedPassword = InstructorService.GetAll().FirstOrDefault(i => i.Email == user.Email).Password;
-                bool isPasswordCorrect = BCrypt.Net.BCrypt.Verify(user.Password, hashedPassword);
-                if (isPasswordCorrect)
-                {
-                    Instructor instructor = userrepository.Get(user.Email, hashedPassword);
-                    ClaimsIdentity identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-                    identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, instructor.Id.ToString()));
-                    identity.AddClaim(new Claim(ClaimTypes.Name, instructor.Name.ToString()));
-                    identity.AddClaim(new Claim(ClaimTypes.Role, userrepository.GetRole(instructor.RoleId)));
+                ModelState.AddModelError("Email", "No user found with this email.");
+                return View(user);
+            }
 
-                    ClaimsPrincipal principal = new ClaimsPrincipal(identity);
-                    HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+            string hashedPassword = InstructorService.GetAll().FirstOrDefault(i => i.Email == user.Email).Password;
+            bool isPasswordCorrect = BCrypt.Net.BCrypt.Verify(user.Password, hashedPassword);
 
-                    return RedirectToAction("index", "Home");
-                }
-            }catch(Exception ex)
+            if (isPasswordCorrect)
             {
-                Console.WriteLine("ddd");
-;            }
-          
+                instructor = userrepository.Get(user.Email, hashedPassword);
+                ClaimsIdentity identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+                identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, instructor.Id.ToString()));
+                identity.AddClaim(new Claim(ClaimTypes.Name, instructor.Name.ToString()));
+                identity.AddClaim(new Claim(ClaimTypes.Role, userrepository.GetRole(instructor.RoleId)));
+
+                ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+                HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                return RedirectToAction("index", "Home");
+            }
+            else
+            {
+                ModelState.AddModelError("Password", "Incorrect password.");
+            }
 
 
-           
-          
             return View(user);
         }
         [Authorize]

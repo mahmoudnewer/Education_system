@@ -3,6 +3,7 @@ using Education.Models;
 using Education.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Security.Claims;
 
 namespace Education.Controllers
 {
@@ -12,7 +13,8 @@ namespace Education.Controllers
         private readonly INewStudentService _NewStudentService;
         private readonly IStudentRequestService _studentRequestService;
         private readonly IMapper _imapper;
-
+        
+       
 
         public StudentController(IStudentService studentService, INewStudentService NewStudentService, IStudentRequestService studentRequestService,IMapper imapper)
         {
@@ -36,10 +38,14 @@ namespace Education.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+
         public IActionResult New(Student student)
         {
+            var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            int Id = int.Parse(userIdClaim.Value);
+
             ViewBag.EditButtonValue = "Create";
-            bool admin = true;
+           
           
             if (ModelState.IsValid)
             {
@@ -53,9 +59,9 @@ namespace Education.Controllers
                             student.image = memoryStream.ToArray();
                         }
                     }
-                    //User.IsInRole("Admin")==true
 
-                    if (admin)
+                 
+                    if (User.IsInRole("Admin"))
                     {
 
                         student.confirm = true;
@@ -68,8 +74,7 @@ namespace Education.Controllers
                         StudentRequests studentRequest = new StudentRequests()
                         {
                             StudentId = student.Id,
-                            //put the id of the logined instructor
-                            InstructorId = 3,
+                            InstructorId = Id,
                             Status = "pending",
                             OperationType = "add"
                         };
@@ -88,9 +93,9 @@ namespace Education.Controllers
         }
         public IActionResult Remove(int id)
         {
-            bool admin = true;
-            //User.IsInRole("Admin")==true
-            if (admin)
+            var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            int Id = int.Parse(userIdClaim.Value);
+            if (User.IsInRole("Admin"))
             {
                 _studentService.Delete(id);
             }else
@@ -101,12 +106,12 @@ namespace Education.Controllers
                     StudentRequests studentRequest = new StudentRequests()
                     {
                         StudentId = student.Id,
-                        //put the id of the logined instructor
-                        InstructorId = 3,
+                        
+                        InstructorId = Id,
                         Status = "pending",
                         OperationType = "delete"
                     };
-                    //handle the if click more than one on click delete
+                  
                     StudentRequests ExisitingRequest = _studentRequestService.GetAll().FirstOrDefault(r => r.StudentId == student.Id && r.OperationType == "delete");
                     if(ExisitingRequest==null)
                     {
@@ -135,6 +140,8 @@ namespace Education.Controllers
         [HttpPost]
         public IActionResult Edit(Student student)
         {
+            var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            int Id = int.Parse(userIdClaim.Value);
             bool admin = false;
             ViewBag.EditButtonValue = "Edit";
             if (ModelState.IsValid)
@@ -149,9 +156,9 @@ namespace Education.Controllers
                             student.image = memoryStream.ToArray();
                         }
                     }
-                    //User.IsInRole("Admin")==true
+              
                     student.confirm = true;
-                    if (admin)
+                    if (User.IsInRole("Admin"))
                     {
                        
                         _studentService.Update(student);
@@ -161,7 +168,7 @@ namespace Education.Controllers
                         StudentRequests studentRequest = new StudentRequests()
                         {
                             StudentId = student.Id,
-                            InstructorId = 3,
+                            InstructorId = Id,
                             Status = "pending",
                             OperationType = "edit"
                         };
