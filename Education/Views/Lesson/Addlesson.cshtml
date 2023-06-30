@@ -1,0 +1,63 @@
+﻿@using Education.Enums;
+@model Education.Models.Topic
+@{
+    ViewData["Title"] = "Addlesson";
+
+    SelectList insItems    = new SelectList(ViewBag.intructor, "Id", "Name");
+}
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-title">Add Lesson</p>
+                    <form asp-action="Addlesson"  class="row px-3">
+                        <div class="col-lg-5 col-md-12 p-3 m-auto">
+                            <label for="GroupName">Name</label>
+                            <input id="GroupName" asp-for="Name"
+                                   class="form-control rounded border-primary" placeholder="name">
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                               </div>
+                        <div class="col-lg-5 col-md-12 p-3 m-auto">
+                            <label asp-for="Type">Type</label>
+                            <select asp-for="Type" class="form-control rounded border-primary " asp-items="Html.GetEnumSelectList<Topic_TypeValues>()">
+                                <option selected value="">--Select a value--</option>
+                            </select>
+                            <span asp-validation-for="Type" class="text-danger"></span>
+                        </div>
+
+                        <div class="col-lg-5 col-md-12 p-3 m-auto">
+                            <label for="type">Instructor Name</label>
+                            <select asp-for="InstructorId"  class="form-control rounded border-primary" asp-items="insItems">
+                                <option value="0">--Select Instructor</option>
+                            </select>
+                            <span asp-validation-for="InstructorId" class="text-danger"></span>
+
+                        </div>
+                        <div class="col-lg-5 col-md-12 p-3 m-auto ">
+                            <label asp-for="Date">Date</label>
+                            <input  asp-for="Date"  class="form-control rounded border-primary"   placeholder="name">
+                            <span asp-validation-for="Date" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12 mt-5 mx-2 d-flex justify-content-center">
+                            <button type ="submit" class="btn btn-primary mr-2" >Save</button>
+                            <a asp-action="Alllesson" class="btn btn-light">Back</a>
+                        </div>
+                    </form>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

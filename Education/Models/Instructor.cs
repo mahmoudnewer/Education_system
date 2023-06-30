@@ -23,6 +23,7 @@ namespace Education.Models
         [DataType(DataType.Password)]
         public string confirmPassword { get; set; }
         public int? Age { set; get; }
+        [Column(TypeName = "image")]
         public byte[]? image { set; get; }
 
         //public IFormFile ImageFile;

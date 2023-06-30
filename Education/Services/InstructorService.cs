@@ -1,4 +1,4 @@
-﻿using Education.Models;
+using Education.Models;
 using Education.Repositories;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.EntityFrameworkCore;
