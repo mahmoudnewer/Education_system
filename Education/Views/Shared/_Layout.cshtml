@@ -88,8 +88,25 @@
                 </a>
                 <div id="Grades" class="collapse" aria-labelledby="headingUtilities"  data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="utilities-color.html">Colors</a>
+                        <a class="collapse-item" asp-action="GetAll" asp-controller="Grade">Show Grades</a>
+                        <a class="collapse-item" asp-action="Add" asp-controller="Grade">Add Grade</a>
+                    </div>
+                </div>
+            </li>
 
+            <hr class="sidebar-divider">
+
+
+
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#requests"  aria-expanded="true" aria-controls="collapseUtilities">
+                    <!-- <i class="fas fa-fw fa-wrench"></i> -->
+                    <span style="font-size: 0.9em;">Requests</span>
+                </a>
+                <div id="requests" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" asp-action="ViewAllRequests" asp-controller="Requests"> show All Requests </a>
                     </div>
                 </div>
             </li>

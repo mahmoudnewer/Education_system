@@ -15,10 +15,9 @@ namespace Education.Models
         [MinLength(7)]
         public string Phone { get; set; }
         public string? Address { get; set; }
-        public bool  confirm { get; set; } 
+        public string  confirm { get; set; } 
         public byte[]? image { get; set; } 
-        [NotMapped]
-        public IFormFile ?ImageFile { get; set; }
+
         public bool IsDeleted { set; get; }
         public virtual List<Instructor_Student>? instructorStudents { get; set; } = new List<Instructor_Student>();
         public virtual List<StudentRequests>? StudentRequests { set; get; } = new List<StudentRequests>();

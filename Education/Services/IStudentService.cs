@@ -7,7 +7,11 @@ namespace Education.Services
         IEnumerable<Student> GetAll();
         void Insert(Student student);
         void Delete(int studentId);
-        Student GetById(int studentId); 
+        Student GetById(int studentId);
+
+        Student GetByIdAsNoTracking(int studentId);
+
         void Update(Student student);   
+
     }
 }

@@ -26,15 +26,11 @@
         <input class="form-control" asp-for="Address" />
         <span asp-validation-for="Address" class="text-danger"></span>
     </div>
-   
-    <div>
-        <label for="formFile" asp-for="ImageFile">Image</label>
-        <input class="form-control" asp-for="ImageFile" value="@Model?.ImageFile?.Name" type="file" id="formFile" />
-    
-      
-       
-       
+    <div class="form-group">
+        <label class="control-label"></label>
+        <input type="file" accept="image/*" name="ImageFile" id="ImageFile" class="form-control" />
     </div>
+
   
     <div class="mt-4">
 

@@ -8,8 +8,7 @@ namespace Education.Models
         public int Id { get; set; }
         [MinLength(3)]
         public string Name { get; set; }
-        [EmailAddress(ErrorMessage = "Invalid email address")]
-        public string Email { get; set; }
+ 
         [Range(5, 50)]
         public int Age { get; set; }
         public byte[]? image { get; set; }

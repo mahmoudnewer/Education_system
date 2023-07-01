@@ -1,0 +1,42 @@
+﻿@using Education.Enums;
+
+@{
+    @model Grade;
+SelectList selectListItems = new SelectList(ViewBag.Students, "Id", "Name");
+}
+<hr />
+<div class="row">
+    <div class="col-md-4">
+            <div class="form-group">
+                <label asp-for="grade" class="control-label"></label>
+                <input asp-for="grade" class="form-control" />
+                <span asp-validation-for="grade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+            <select asp-for="Type" class="form-control">
+                <option value="errType" selected hidden >Select Grade Type</option>
+                <option value="@TypeAllowedValues.Old">Old</option>
+                <option value="@TypeAllowedValues.New">New</option>
+            </select>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="studentId" class="control-label">Student</label>
+                <select asp-for="studentId" class="form-control" asp-items="selectListItems">
+                    <option value="0" selected hidden >Select Student</option>
+                </select>
+                <span asp-validation-for="studentId" class="text-danger"></span>
+
+            </div>
+
+    </div>
+</div>
+
+

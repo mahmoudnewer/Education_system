@@ -3,6 +3,7 @@ using Education.Models;
 using Education.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.Security.Claims;
 
 namespace Education.Controllers
@@ -11,12 +12,12 @@ namespace Education.Controllers
     {
         private readonly IStudentService _studentService;
         private readonly INewStudentService _NewStudentService;
-        private readonly IStudentRequestService _studentRequestService;
+        private readonly IRequestsServices _studentRequestService;
         private readonly IMapper _imapper;
         
        
 
-        public StudentController(IStudentService studentService, INewStudentService NewStudentService, IStudentRequestService studentRequestService,IMapper imapper)
+        public StudentController(IStudentService studentService, INewStudentService NewStudentService, IRequestsServices studentRequestService,IMapper imapper)
         {
             _studentService = studentService;
             _NewStudentService= NewStudentService;
@@ -27,7 +28,7 @@ namespace Education.Controllers
         }
         public IActionResult Index()
         {
-            List<Student> students = _studentService.GetAll().Where(s=>s.confirm==true).ToList();
+            List<Student> students = _studentService.GetAll().Where(s=>s.confirm== "accepted" && s.IsDeleted==false).ToList();
             
             return View(students);
         }
@@ -39,23 +40,23 @@ namespace Education.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public IActionResult New(Student student)
+        public IActionResult New(Student student, IFormFile? ImageFile)
         {
             var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
             int Id = int.Parse(userIdClaim.Value);
 
             ViewBag.EditButtonValue = "Create";
-           
-          
+
+            ModelState.Remove("confirm");
             if (ModelState.IsValid)
             {
                 try
                 {
-                    if (student.ImageFile != null && student.ImageFile.Length > 0)
+                    if (ImageFile != null && ImageFile.Length > 0)
                     {
                         using (var memoryStream = new MemoryStream())
                         {
-                            student.ImageFile.CopyTo(memoryStream);
+                            ImageFile.CopyTo(memoryStream);
                             student.image = memoryStream.ToArray();
                         }
                     }
@@ -64,12 +65,12 @@ namespace Education.Controllers
                     if (User.IsInRole("Admin"))
                     {
 
-                        student.confirm = true;
+                        student.confirm = "accepted";
                         _studentService.Insert(student);
                     }
                     else
                     {
-                        student.confirm = false;
+                        student.confirm = "pending";
                         _studentService.Insert(student);
                         StudentRequests studentRequest = new StudentRequests()
                         {
@@ -80,8 +81,8 @@ namespace Education.Controllers
                         };
                         _studentRequestService.insert(studentRequest);
                     }
-                   
-                    return View();
+                    return RedirectToAction("New");
+
                 }catch(Exception ex)
                 {
                     ModelState.AddModelError("", ex.InnerException.Message);
@@ -112,7 +113,7 @@ namespace Education.Controllers
                         OperationType = "delete"
                     };
                   
-                    StudentRequests ExisitingRequest = _studentRequestService.GetAll().FirstOrDefault(r => r.StudentId == student.Id && r.OperationType == "delete");
+                    StudentRequests ExisitingRequest = _studentRequestService.GetAllRequestInfo().FirstOrDefault(r => r.StudentId == student.Id && r.OperationType == "delete");
                     if(ExisitingRequest==null)
                     {
                         _studentRequestService.insert(studentRequest);
@@ -138,29 +139,35 @@ namespace Education.Controllers
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
-        public IActionResult Edit(Student student)
+        public IActionResult Edit(Student student,IFormFile? ImageFile)
         {
             var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
             int Id = int.Parse(userIdClaim.Value);
-            bool admin = false;
             ViewBag.EditButtonValue = "Edit";
+            ModelState.Remove("confirm");
             if (ModelState.IsValid)
             {
                 try
                 {
-                    if (student.ImageFile != null && student.ImageFile.Length > 0)
+                    if (ImageFile != null && ImageFile.Length > 0)
                     {
                         using (var memoryStream = new MemoryStream())
                         {
-                            student.ImageFile.CopyTo(memoryStream);
+                            ImageFile.CopyTo(memoryStream);
                             student.image = memoryStream.ToArray();
                         }
                     }
-              
-                    student.confirm = true;
+                    else
+                    {
+                        
+                        student.image = _studentService.GetByIdAsNoTracking(student.Id).image;
+
+                    }
+
                     if (User.IsInRole("Admin"))
                     {
-                       
+                    student.confirm = "accepted";
+
                         _studentService.Update(student);
                     }else
                     {

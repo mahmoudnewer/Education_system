@@ -28,7 +28,6 @@ namespace Education
            
             builder.Services.AddScoped<IStudentService,StudentService>();
             builder.Services.AddScoped<INewStudentService, NewStudentService>();
-            builder.Services.AddScoped<IStudentRequestService, StudentRequestService>();
             builder.Services.AddScoped<IUserService, UserService>();
             builder.Services.AddScoped<IInstructorService, InstructorService>();
             builder.Services.AddScoped<ITopicService, TopicService>();
@@ -41,6 +40,11 @@ namespace Education
             builder.Services.AddScoped<IGenericRepository<Topic>, GenericRepository<Topic>>();
             builder.Services.AddScoped<IRoleService, RoleService>();
             builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+
+
+
+            builder.Services.AddScoped<IRequestsServices, RequestsServices>();
+            builder.Services.AddScoped<IGradeServices, GradeServices>();
 
 
             var config = new MapperConfiguration(cfg =>

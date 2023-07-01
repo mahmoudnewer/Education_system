@@ -25,7 +25,13 @@ namespace Education.Services
 
         public Student GetById(int studentId)
         {
+
             return _studentRepo.GetById(studentId);
+        }
+
+        public Student GetByIdAsNoTracking(int studentId)
+        {
+            return _studentRepo.GetByIdAsNoTracking(studentId);
         }
 
         public void Insert(Student student)

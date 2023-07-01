@@ -18,7 +18,7 @@ namespace Education.DAL.Custom_Validtion
                     }
                     else
                     {
-                        return new ValidationResult("Cours date cant be in old date");
+                        return new ValidationResult("Date cant be old ");
                     }
 
                 }
