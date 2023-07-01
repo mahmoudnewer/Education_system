@@ -46,8 +46,8 @@
         <span asp-validation-for="Age" class="text-danger"></span>
         -->
         <label asp-for="image"></label>
-        <input id="txtViewer" type="file" value="Upload Image" class="form-control" asp-for="image"/>
-        <img id="imgViewer" width="200" height="200" />
+        <input id="txtViewer" type="file" value="Upload Image" class="form-control mb-4" asp-for="image" />
+        <img class="rounded " id="imgViewer" width="100" height="100" />
     </div>
     <div>
         <label asp-for="Age"></label>
@@ -59,9 +59,13 @@
         <label asp-for="RoleId">Role</label>
         <select class="form-control" asp-for="RoleId" asp-items="roleItems"></select>
     </div>
-    <input type="submit" value="Create" class="btn btn-primary" id="btnSave"/>
+    <div class="mt-4">
+        <input type="submit" value="Create" class="btn btn-primary" id="btnSave" />
+        <a asp-action="Index" class="btn btn-primary">Back to List</a>
+    </div>
+   
 </form>
-<a asp-action="Index">Back to List</a>
+
 <!--jQuery Libs//Client Side Validation-->
 <!--Show error message when you leave field-->
 <script src="~/lib/jquery/dist/jquery.js"></script>

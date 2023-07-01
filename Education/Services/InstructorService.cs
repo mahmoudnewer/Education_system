@@ -8,7 +8,6 @@ namespace Education.Services
     public class InstructorService : IInstructorService
     {
         IGenericRepository<Instructor> _instructorRepository;
-       
         public InstructorService(IGenericRepository<Instructor> instructorRepository)
         {
             _instructorRepository = instructorRepository;
@@ -16,6 +15,7 @@ namespace Education.Services
         public void Delete(int id)
         {
             _instructorRepository.Delete(id);
+            _instructorRepository.Save();
         }
 
         public IEnumerable<Instructor> GetAll()
@@ -56,6 +56,21 @@ namespace Education.Services
             instructor.Password = NewPassword;
             _instructorRepository.Update(instructor);
             _instructorRepository.Save();
+        }
+
+        public bool IsFound(string email, string password)
+        {
+            Instructor user = _instructorRepository.GetAll().FirstOrDefault(a => a.Email == email && a.Password == password);
+            if (user == null)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public Instructor GetByEmaillAndPassword(string email, string password)
+        {
+            return _instructorRepository.GetAll().FirstOrDefault(a => a.Email == email && a.Password == password);
         }
     }
 }

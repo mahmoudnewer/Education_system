@@ -1,4 +1,5 @@
 ﻿using Education.Models;
+using Education.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
@@ -9,14 +10,16 @@ namespace Education.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IStudentService _studentService;
+        public HomeController(ILogger<HomeController> logger , IStudentService studentService)
         {
             _logger = logger;
+            _studentService = studentService;
         }
         [Authorize]
         public IActionResult Index()
         {
+           
             return View();
         }
        

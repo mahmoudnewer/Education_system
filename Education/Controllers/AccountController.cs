@@ -12,12 +12,14 @@ namespace Education.Controllers
 {
     public class AccountController : Controller
     {
-        IUserService userrepository;
-        IInstructorService InstructorService;
-        public AccountController(IUserService _userrepository, IInstructorService _InstructorService)
+      
+       private readonly IInstructorService InstructorService;
+        private readonly IRoleService RoleService;
+        public AccountController( IInstructorService _InstructorService, IRoleService _RoleService)
         {
-            userrepository = _userrepository;
+           
             InstructorService = _InstructorService;
+            RoleService = _RoleService;
         }
         public IActionResult Login()
         {
@@ -81,11 +83,11 @@ namespace Education.Controllers
 
             if (isPasswordCorrect)
             {
-                instructor = userrepository.Get(user.Email, hashedPassword);
+                instructor = InstructorService.GetByEmaillAndPassword(user.Email, hashedPassword);
                 ClaimsIdentity identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
                 identity.AddClaim(new Claim(ClaimTypes.NameIdentifier, instructor.Id.ToString()));
                 identity.AddClaim(new Claim(ClaimTypes.Name, instructor.Name.ToString()));
-                identity.AddClaim(new Claim(ClaimTypes.Role, userrepository.GetRole(instructor.RoleId)));
+                identity.AddClaim(new Claim(ClaimTypes.Role, RoleService.GetById(instructor.RoleId).Name));
 
                 ClaimsPrincipal principal = new ClaimsPrincipal(identity);
                 HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
@@ -116,7 +118,7 @@ namespace Education.Controllers
                 image = instructor.image,
                 Address = instructor.Address,
                 Age = instructor.Age,
-                Role = userrepository.GetRole(instructor.RoleId)
+                Role = RoleService.GetById(instructor.RoleId).Name
                 };
                 return View(profile);
             

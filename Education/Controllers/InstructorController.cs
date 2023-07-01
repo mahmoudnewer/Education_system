@@ -1,56 +1,69 @@
 ﻿using Education.Models;
 using Education.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 //using Microsoft.Web.Helpers;
 using Newtonsoft.Json;
 using System.Buffers.Text;
+using System.Data;
 using System.Security.Claims;
 
 namespace Education.Controllers
 {
     public class InstructorController : Controller
     {
-        IInstructorService _InstructorService=null;
+        IInstructorService _InstructorService = null;
         private readonly IRoleService _RoleService;
-     
+
         public InstructorController(IInstructorService instructorService, IRoleService RoleService)
         {
             //instructorGeneric = instructor;
             this._InstructorService = instructorService;
             _RoleService = RoleService;
-           
+
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
-            IEnumerable<Instructor> instructors = _InstructorService.GetAll();
+            var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            int Id = int.Parse(userIdClaim.Value);
+            IEnumerable<Instructor> instructors = _InstructorService.GetAll().Where(instructor => instructor.Id != Id);
             return View(instructors);
         }
 
-        //public IActionResult ShowImage()
-        //{
-        //    var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
-        //    int Id = int.Parse(userIdClaim.Value);
-        //    var instructorImage = _InstructorService.GetById(Id).image;
-        //    string base64Image = Convert.ToBase64String(instructorImage);
-        //    string imageSrc = $"data:image/jpeg;base64,{base64Image}";
-        //    return Content(imageSrc, "image/jpeg");
-            
-        //}
+        public IActionResult ShowImage()
+        {
+            var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            int Id = int.Parse(userIdClaim.Value);
+            var currInstructor = _InstructorService.GetById(Id);
+            if (currInstructor?.image?.Length > 0 && currInstructor?.image != null)
+            {
+                string base64Image = Convert.ToBase64String(currInstructor.image);
+                string imageSrc = $"data:image/jpeg;base64,{base64Image}";
+                return PartialView("_ImagePartial", imageSrc);
+            }
+            return PartialView("_ImagePartial", "/img/undraw_profile.svg");
+
+
+        }
+        [Authorize(Roles = "Admin")]
         IActionResult getRoleByInstructor(Instructor instructor)
         {
             Role roles = _RoleService.GetById(instructor.RoleId);
             return Json(roles);
 
         }
-
+        [Authorize(Roles = "Admin")]
         public IActionResult New()
         {
             ViewData["RoleList"] = _RoleService.GetAll();
             return View();
         }
 
+
         [HttpPost]
-        public IActionResult New(Instructor _instructor, IFormFile image)
+        [Authorize(Roles = "Admin")]
+        public IActionResult New(Instructor _instructor, IFormFile ? image)
         {
             if (ModelState.IsValid == true)
             {
@@ -81,6 +94,7 @@ namespace Education.Controllers
             return View(_instructor);
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public ActionResult Save(Instructor _instructor, IFormFile imageFile)
         {
             if (ModelState.IsValid == true)
@@ -91,7 +105,7 @@ namespace Education.Controllers
                     using (var memoryStream = new MemoryStream())
                     {
                         imageFile.CopyTo(memoryStream);
-                        _instructor.image= memoryStream.ToArray();
+                        _instructor.image = memoryStream.ToArray();
                     }
                 }
                 //
@@ -106,6 +120,7 @@ namespace Education.Controllers
             }
             return View("New", _instructor);
         }
+        [Authorize]
         public IActionResult Edit(int id)
         {
             Instructor instructor = _InstructorService.GetById(id);
@@ -115,6 +130,7 @@ namespace Education.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public IActionResult Edit(Instructor instructor, IFormFile? imageFile)
         {
             try
@@ -127,24 +143,26 @@ namespace Education.Controllers
                         instructor.image = memoryStream.ToArray();
                     }
                 }
-               
+
                 ModelState.Remove("ConfirmPassword");
                 ModelState.Remove("Password");
                 if (ModelState.IsValid == true)//Server Side Check
                 {
-                   
+
                     var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
                     int Id = int.Parse(userIdClaim.Value);
                     string password = _InstructorService.GetById(Id).Password;
                     instructor.Password = password;
-                    _InstructorService.GetByIdAsNoTracking(Id);
+                    var StoredInstructor = _InstructorService.GetByIdAsNoTracking(Id);
+                    instructor.image = StoredInstructor.image;
+                    instructor.RoleId = StoredInstructor.RoleId;
                     _InstructorService.Update(instructor);
                     if (Id == instructor.Id)
                     {
                         return RedirectToAction("Profile", "Account");
                     }
 
-                   
+
                     return RedirectToAction("Index");
                 }
             }
@@ -155,77 +173,13 @@ namespace Education.Controllers
             ViewData["RoleList"] = _RoleService.GetAll();
             return View(instructor);
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id)
         {
-            Instructor instructor = _InstructorService.GetById(id);
-
-            if (instructor == null)
-            {
-                return NotFound();
-            }
-            return View(instructor);
-        }
-        [HttpPost, ActionName("DeleteConfirmed")]
-        public IActionResult DeleteConfirmed(int id)
-        {
-            Instructor instructor = _InstructorService.GetById(id);
-
-            if (instructor == null)
-            {
-                return NotFound();
-            }
-
             _InstructorService.Delete(id);
-            _InstructorService.Save();
-            return RedirectToAction("Index");
-        }
-        /*[HttpPost]
-        public string SaveFile(FileUpload fileObj)
-        {
-            Instructor instructor = JsonConvert.DeserializeObject<Instructor>(fileObj.instructor);
-            if (fileObj.file.Length > 0)
-            {
-                using (var ms = new MemoryStream())
-                {
-                    fileObj.file.CopyTo(ms);
-                    var fileBytes = ms.ToArray();
-                    instructor.image = fileBytes;
-
-                    instructor = _InstructorService.Insert(instructor);
-                    _InstructorService.Save();
-                    if (instructor.Id > 0)
-                    {
-                        return "Saved";
-                    }
-
-                }
-            }
-            return "Failed";
-        }
-
-        [HttpGet]
-        public JsonResult GetSavedInstructor()
-        {
-            var ins=_InstructorService.GetInstructorSaved();
-            ins.image=this.GetImage(Convert.ToBase64String(ins.image));
-            return Json(ins);
+            return View("Index");
 
         }
-        public byte[] GetImage(string sBase64String)
-        {
-            byte[] bytes = null;
-            if(!string.IsNullOrEmpty(sBase64String))
-            {
-                bytes = Convert.FromBase64String(sBase64String);
-            }
-            return bytes;
-        }*/
     }
 
 }
-
-/*
-if(BCrypt.Net.BCrypt.Verify(password,_insrtcutor.Password))
-{
-    //Do...
-}*/

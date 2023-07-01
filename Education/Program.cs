@@ -28,7 +28,7 @@ namespace Education
            
             builder.Services.AddScoped<IStudentService,StudentService>();
             builder.Services.AddScoped<INewStudentService, NewStudentService>();
-            builder.Services.AddScoped<IUserService, UserService>();
+ 
             builder.Services.AddScoped<IInstructorService, InstructorService>();
             builder.Services.AddScoped<ITopicService, TopicService>();
             builder.Services.AddScoped<IGenericRepository<Grade>, GenericRepository<Grade>>();

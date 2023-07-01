@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using Education.Models;
 using Education.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System.Data;
 using System.Security.Claims;
 
 namespace Education.Controllers
@@ -26,12 +28,14 @@ namespace Education.Controllers
 
 
         }
+        [Authorize]
         public IActionResult Index()
         {
             List<Student> students = _studentService.GetAll().Where(s=>s.confirm== "accepted" && s.IsDeleted==false).ToList();
             
             return View(students);
         }
+        [Authorize]
         public IActionResult New()
         {
             ViewBag.EditButtonValue = "Create";
@@ -39,7 +43,7 @@ namespace Education.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-
+        [Authorize]
         public IActionResult New(Student student, IFormFile? ImageFile)
         {
             var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
@@ -92,6 +96,7 @@ namespace Education.Controllers
             return View(student);
 
         }
+        [Authorize]
         public IActionResult Remove(int id)
         {
             var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
@@ -127,7 +132,7 @@ namespace Education.Controllers
             return RedirectToAction("index");
 
         }
-       
+        [Authorize]
         public IActionResult Edit(int id)
         {
             ViewBag.EditButtonValue = "Edit";
@@ -139,6 +144,7 @@ namespace Education.Controllers
         }
         [ValidateAntiForgeryToken]
         [HttpPost]
+        [Authorize]
         public IActionResult Edit(Student student,IFormFile? ImageFile)
         {
             var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);

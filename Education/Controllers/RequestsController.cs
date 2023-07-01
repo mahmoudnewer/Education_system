@@ -15,7 +15,7 @@ namespace Education.Controllers
             _RequestService = RequestService;
         }
 
-        //[Authorize] 
+        [Authorize] 
         [HttpGet]
         public IActionResult ViewAllRequests()
         {
@@ -58,6 +58,7 @@ namespace Education.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Instructor")]
         public IActionResult EditRequest(int id)
         {
             var studentRequest = _RequestService.GetById(id);
@@ -81,10 +82,6 @@ namespace Education.Controllers
 
             req.Image = studentRequest.OperationType == "edit" ? studentRequest.NewStudentData.image :
             studentRequest.Student.image;
-
-
-
-
             req.InstructorName = studentRequest.Instructor.Name;
 
             req.Status = studentRequest.Status;
@@ -96,6 +93,7 @@ namespace Education.Controllers
 
         [HttpPost]
         [AutoValidateAntiforgeryToken]
+        [Authorize(Roles = "Instructor")]
         public IActionResult EditRequest(RequestsViewModel request, IFormFile? imageFile)
         {
 
@@ -114,6 +112,7 @@ namespace Education.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "Instructor")]
         public IActionResult DeleteRefreshRequests(int id)
         {
             _RequestService.Delete(id);
@@ -155,6 +154,7 @@ namespace Education.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult AcceptRefreshRequests(int id)
         {
             var request = _RequestService.GetById(id);
@@ -197,6 +197,7 @@ namespace Education.Controllers
 
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult RejectRefreshRequests(int id)
         {
             var request = _RequestService.GetById(id);

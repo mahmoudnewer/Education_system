@@ -2,7 +2,9 @@
 using Education.Repositories;
 using Education.Services;
 using Education.ViewModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Education.Controllers
 {
@@ -17,7 +19,7 @@ namespace Education.Controllers
             _GradeService = GradeService;
             _StudentService = StudentService;
         }
-
+        [Authorize]
         public IActionResult GetAll()
         {
             var grades = _GradeService.GetAll();
@@ -25,6 +27,7 @@ namespace Education.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult Add()
         {
             ViewBag.Students = _StudentService.GetAll().Where(s=>s.IsDeleted==false);
@@ -33,6 +36,7 @@ namespace Education.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public IActionResult Add(Grade g)
         {
             var allStds = _StudentService.GetAll().Where(s => s.IsDeleted == false);
@@ -58,7 +62,7 @@ namespace Education.Controllers
         }
 
         [HttpGet]
-
+        [Authorize]
         public IActionResult Edit(int id)
         {
             ViewBag.Students = _StudentService.GetAll().Where(s => s.IsDeleted == false);
@@ -67,6 +71,7 @@ namespace Education.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public IActionResult Edit(Grade g)
         {
             if (ModelState.IsValid)
@@ -81,6 +86,7 @@ namespace Education.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult DeleteRefreshGrade(int id)
         {
             _GradeService.Delete(id);
