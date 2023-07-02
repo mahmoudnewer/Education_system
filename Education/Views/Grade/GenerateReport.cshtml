@@ -1,0 +1,32 @@
+﻿@model List<dynamic>
+@{
+    ViewData["Title"] = "GenerateReport";
+}
+
+<form method="post" action="@Url.Action("GenerateReport", "Grade")">
+    <label for="dateInput">Date:</label>
+    <input type="date" id="dateInput" name="selectedDate" required />
+    <button type="submit">Generate Report</button>
+</form>
+
+<table>
+    <thead>
+        <tr>
+            <th>Student Name</th>
+            <th>Average New Grade</th>
+            <th>Average Old Grade</th>
+            <th>Attendance Days</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model ?? Enumerable.Empty<dynamic>())
+        {
+            <tr>
+                <td>@item.StudentName</td>
+                <td>@item.AverageNewGrade</td>
+                <td>@item.AverageOldGrade</td>
+                <td>@item.AttendanceDays</td>
+            </tr>
+        }
+    </tbody>
+</table>
