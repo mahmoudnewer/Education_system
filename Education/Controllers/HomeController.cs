@@ -27,8 +27,8 @@ namespace Education.Controllers
         public IActionResult Index()
         {
 
-            TempData["instructor"] = instructorService.GetAll().ToList().Count;
-            TempData["student"] = studentService.GetAll().ToList().Count;
+            TempData["instructor"] = instructorService.GetAll().Where(s=>s.Isdeleted==false).ToList().Count;
+            TempData["student"] = studentService.GetAll().Where(s=>s.confirm=="accepted"&s.IsDeleted==false).ToList().Count;
             TempData["topic"] = topicService.GetAll().ToList().Count;
 
             if (User.IsInRole("Admin"))
