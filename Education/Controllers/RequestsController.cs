@@ -3,6 +3,8 @@ using Education.Services;
 using Education.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using System.Security.Principal;
 
 namespace Education.Controllers
 {
@@ -19,8 +21,22 @@ namespace Education.Controllers
         [HttpGet]
         public IActionResult ViewAllRequests()
         {
-            var allRequests = _RequestService.GetAll();
+            var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
+            int userId = int.Parse(userIdClaim.Value);
+            //var userRole = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.Role);
+
+            IEnumerable<StudentRequests> allRequests;
+            if (User.IsInRole("Admin"))
+            {
+                allRequests = _RequestService.GetAll();
+            }
+            else
+            {
+                allRequests = _RequestService.GetAll().Where(r => r.InstructorId == userId);
+            }
+
             List<RequestsViewModel> finalRes = new List<RequestsViewModel>();
+
 
             foreach (var item in allRequests)
             {

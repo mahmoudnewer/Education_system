@@ -24,10 +24,9 @@
     </div>
     <div>
         <label asp-for="image"></label>
-        <input id="fileInput" type="file"  class="form-control"  name="imageFile"  />
+        <input id="fileInput" type="file"  class="form-control mb-3"  name="imageFile"  />
         @if (@Model.image?.Length > 0)
         {
-            <p>Old Image</p>
             <img class="rounded " id="imgViewer" width="100" height="100" src="data:image/jpg;base64,@Convert.ToBase64String(Model.image)" />
         }
         else
@@ -49,7 +48,7 @@
         </div>
         }     
   
-    <button type="submit"  class="btn btn-success" >Edit</button>
+    <button type="submit"  class="btn btn-primary mt-3" >Edit</button>
 </form>
 @section Scripts 
 { 
@@ -59,19 +58,20 @@
             var files = event.target.files;
             $("#imgViewer").attr("src", window.URL.createObjectURL(files[0]));
         });
-        $("#btnSave").click(function () {
-            var files = $("#txtViewer").prop("files");
-            var formData = new FormData();
-            for (var i = 0; i < files.lenght; i++) {
-                formData.append("fileInput", files[i]);
-            }
-            $.ajax({
-                type: 'GET',
-                success: function (data) {
-                    $("#imgViewer").attr("src", "data:image/jpg;base64," + data.image + "")
-                }
-            })
-        })
+
+        //$("#btnSave").click(function () {
+        //    var files = $("#txtViewer").prop("files");
+        //    var formData = new FormData();
+        //    for (var i = 0; i < files.lenght; i++) {
+        //        formData.append("fileInput", files[i]);
+        //    }
+        //    $.ajax({
+        //        type: 'GET',
+        //        success: function (data) {
+        //            $("#imgViewer").attr("src", "data:image/jpg;base64," + data.image + "")
+        //        }
+        //    })
+        //})
     </script>
 }
 

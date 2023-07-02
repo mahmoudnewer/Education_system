@@ -66,11 +66,11 @@
    
 </form>
 
-<!--jQuery Libs//Client Side Validation-->
-<!--Show error message when you leave field-->
-<script src="~/lib/jquery/dist/jquery.js"></script>
-<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+
+<partial name="_ValidationScriptsPartial" />
+@section Scripts
+{
 
 <script type="text/javascript">
     $("#txtViewer").change(function(event){
@@ -92,3 +92,4 @@
     })
 </script>
 
+ }

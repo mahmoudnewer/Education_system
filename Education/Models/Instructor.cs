@@ -23,6 +23,8 @@ namespace Education.Models
         [NotMapped]
         [DataType(DataType.Password)]
         public string confirmPassword { get; set; }
+
+        [Range(15, 100)]
         public int? Age { set; get; }
         [Column(TypeName = "image")]
         

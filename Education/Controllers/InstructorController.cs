@@ -1,5 +1,7 @@
 ﻿using Education.Models;
 using Education.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 //using Microsoft.Web.Helpers;
@@ -7,6 +9,7 @@ using Newtonsoft.Json;
 using System.Buffers.Text;
 using System.Data;
 using System.Security.Claims;
+using System.Security.Principal;
 
 namespace Education.Controllers
 {
@@ -135,14 +138,7 @@ namespace Education.Controllers
         {
             try
             {
-                if (imageFile != null && imageFile.Length > 0)
-                {
-                    using (var memoryStream = new MemoryStream())
-                    {
-                        imageFile.CopyTo(memoryStream);
-                        instructor.image = memoryStream.ToArray();
-                    }
-                }
+
 
                 ModelState.Remove("ConfirmPassword");
                 ModelState.Remove("Password");
@@ -154,9 +150,58 @@ namespace Education.Controllers
                     string password = _InstructorService.GetById(Id).Password;
                     instructor.Password = password;
                     var StoredInstructor = _InstructorService.GetByIdAsNoTracking(Id);
-                    instructor.image = StoredInstructor.image;
-                    instructor.RoleId = StoredInstructor.RoleId;
+
+                    if (imageFile != null && imageFile.Length > 0)
+                    {
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            imageFile.CopyTo(memoryStream);
+                            instructor.image = memoryStream.ToArray();
+                        }
+                    }
+                    else
+                    {
+                        instructor.image = StoredInstructor.image;
+
+                    }
+
+
+
+                    if (instructor.RoleId == 0)
+                    {
+                        instructor.RoleId = StoredInstructor.RoleId;
+                    }
+
                     _InstructorService.Update(instructor);
+
+                    if (instructor.RoleId != StoredInstructor.RoleId)
+                    {
+
+                        // Retrieve the current user's claims identity and create a new claims principal
+                        ClaimsIdentity identity = (ClaimsIdentity)User.Identity;
+
+                        // Locate the existing claim for the role
+                        Claim existingRoleClaim = identity.FindFirst(ClaimTypes.Role);
+
+                        // Remove the existing role claim
+                        identity.RemoveClaim(existingRoleClaim);
+
+                        // Add the updated role claim
+
+                        identity.AddClaim(new Claim(ClaimTypes.Role, _RoleService.GetById(instructor.RoleId).Name));
+
+
+                        ClaimsPrincipal principal = new ClaimsPrincipal(identity);
+
+
+
+                        // Sign in the user with the updated claims principal
+                         HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+
+
+
+                    }
                     if (Id == instructor.Id)
                     {
                         return RedirectToAction("Profile", "Account");

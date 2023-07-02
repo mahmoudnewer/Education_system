@@ -2,7 +2,68 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!--Main Container-->
+<div class="main-panel m-4 p-4 w-100">
+    <div class="content-wrapper container  ">
+        <!--info top-->
+        <div class="row">
+            <div class="col-md-12 grid-margin">
+                <div class="row">
+                    <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+                        <h3 class="font-weight-bold">Welcome @User.Identity.Name</h3>
+                    </div>
+                    <div class="col-12 col-xl-4">
+                        <div class="justify-content-end d-flex">
+                            <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+                                <a class="btn btn-sm btn-light bg-white" type="button" id="dropdownMenuDate2" aria-haspopup="true" aria-expanded="true">
+                                    <i class="fa-solid fa-calendar-days fa-lg mr-4" style="color: #5858FA;"></i> @DateTime.Now.ToString("yyyy-MM-dd T HH:mm:ss")
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--end top info-->
+        <div class="row justify-content-center mt-4">
+
+            <div class="col-md-5 mb-4 stretch-card transparent  ">
+                <div class="card card-tale rounded-4">
+                    <div class="card-body text-center ">
+                        <p class="mb-4 display-5"><i class="fa-solid fa-user-tie fa-lg m-3"></i>Total Instructors</p>
+                        <p class="fs-30 mb-2 display-5 ">@TempData["instructor"]</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 mb-4 stretch-card transparent">
+                        <div class="card card-dark-blue">
+                    <div class="card-body text-center">
+                        <p class="mb-4 display-5"><i class="fa-solid fa-user-graduate fa-lg m-3"></i>Total Students</p>
+                        <p class="fs-30 mb-2 display-5">@TempData["student"]</p>
+                            </div>
+                        </div>
+                    </div>
+                
+               
+                    <div class="col-md-5 mb-4 mb-lg-0 stretch-card transparent">
+                        <div class="card card-light-blue">
+                    <div class="card-body text-center">
+                        <p class="mb-4 display-5"><i class="fa-solid fa-book-bookmark fa-lg m-3"></i> Lesson</p>
+                        <p class="fs-30 mb-2 display-5">@TempData["topic"]</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 stretch-card transparent">
+                        <div class="card card-light-danger">
+                    <div class="card-body text-center">
+                        <p class="mb-4 display-5"><i class="fa-solid fa-chalkboard-user fa-lg m-3"></i>Total Requests </p>
+                        <p class="fs-30 mb-2 display-5">@TempData["request"]</p>
+                            </div>
+                        </div>
+                    </div>
+              
+            
+        </div>
+
+    </div>
 </div>

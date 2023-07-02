@@ -28,8 +28,10 @@
     </div>
     <div class="form-group">
         <label class="control-label"></label>
-        <input type="file" accept="image/*" name="ImageFile" id="ImageFile" class="form-control" />
+        <input type="file" accept="image/*" name="ImageFile" id="imgInput" class="form-control" />
     </div>
+
+    <img class="rounded " id="imgViewer" width="100" height="100" src="data:image/jpg;base64,@Convert.ToBase64String(Model?.image != null ? Model?.image : new byte[]{} )" />
 
   
     <div class="mt-4">
@@ -40,8 +42,21 @@
   
 </form>
 
+<partial name="_ValidationScriptsPartial" />
 
 @section Scripts{
-    <partial name="_ValidationScriptsPartial" />
+    <script type="text/javascript">
+        $("#imgInput").change(function (event) {
+
+            console.log(document.getElementById("imgViewer"));
+
+            var files = event.target.files;
+            $("#imgViewer").attr("src", window.URL.createObjectURL(files[0]));
+        });
+
+
+    </script>
+
+
 }
 
