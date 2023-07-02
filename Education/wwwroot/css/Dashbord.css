@@ -10,6 +10,9 @@
     display: flex;
     -webkit-flex-direction: column;
     flex-direction: column;
+    margin:1rem;
+    padding:1rem;
+    width:100%;
 }
 
 @media (max-width: 991px) {
