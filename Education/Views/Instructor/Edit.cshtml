@@ -4,52 +4,54 @@
     ViewData["Title"] = "Edit";
     SelectList roleItems = new SelectList(ViewBag.RoleList, "Id", "Name");
 }
-<h1>Edit Instructor</h1>
-<form method="post" asp-action="Edit" asp-controller="instructor" enctype="multipart/form-data">
-    <div>
-        <label asp-for="Name"></label>
-        <input class="form-control" asp-for="Name" />
-    </div>
-    <div>
-        <label asp-for="Email"></label>
-        <input class="form-control" asp-for="Email"  />
-    </div>
-  <div>
-        <label asp-for="Phone"></label>
-        <input class="form-control" asp-for="Phone"  />
-    </div>
-    <div>
-        <label asp-for="Address"></label>
-        <input class="form-control" asp-for="Address"  />
-    </div>
-    <div>
-        <label asp-for="image"></label>
-        <input id="fileInput" type="file"  class="form-control mb-3"  name="imageFile"  />
-        @if (@Model.image?.Length > 0)
-        {
-            <img class="rounded " id="imgViewer" width="100" height="100" src="data:image/jpg;base64,@Convert.ToBase64String(Model.image)" />
-        }
-        else
-        {
-            <p>Not Found</p>
-        }
-      
-    </div>
-    <div>
-        <label asp-for="Age"></label>
-        <input class="form-control" asp-for="Age" />
-    </div>
-   
-        @if(User.IsInRole("Admin"))
-        {
+<div class="main-panel">
+    <form method="post" asp-action="Edit" asp-controller="instructor" enctype="multipart/form-data">
         <div>
-            <label asp-for="RoleId">Role</label>
-            <select class="form-control" asp-for="RoleId" asp-items="roleItems"></select>
+            <label asp-for="Name"></label>
+            <input class="form-control" asp-for="Name" />
         </div>
-        }     
-  
-    <button type="submit"  class="btn btn-primary mt-3" >Edit</button>
-</form>
+        <div>
+            <label asp-for="Email"></label>
+            <input class="form-control" asp-for="Email" />
+        </div>
+        <div>
+            <label asp-for="Phone"></label>
+            <input class="form-control" asp-for="Phone" />
+        </div>
+        <div>
+            <label asp-for="Address"></label>
+            <input class="form-control" asp-for="Address" />
+        </div>
+        <div>
+            <label asp-for="image"></label>
+            <input id="fileInput" type="file" class="form-control mb-3" name="imageFile" />
+            @if (@Model.image?.Length > 0)
+            {
+                <img class="rounded " id="imgViewer" width="100" height="100" src="data:image/jpg;base64,@Convert.ToBase64String(Model.image)" />
+            }
+            else
+            {
+                <p>Not Found</p>
+            }
+
+        </div>
+        <div>
+            <label asp-for="Age"></label>
+            <input class="form-control" asp-for="Age" />
+        </div>
+
+        @if (User.IsInRole("Admin"))
+        {
+            <div>
+                <label asp-for="RoleId">Role</label>
+                <select class="form-control" asp-for="RoleId" asp-items="roleItems"></select>
+            </div>
+        }
+
+        <button type="submit" class="btn btn-primary mt-3">Edit</button>
+    </form>
+</div>
+
 @section Scripts 
 { 
     <partial name="_ValidationScriptsPartial" />

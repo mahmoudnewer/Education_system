@@ -4,47 +4,59 @@
     ViewData["Title"] = "Index";
 }
 
+<div class="main-panel">
+    <a asp-action="New" class="btn btn-primary d-flex align-self-end mb-4">Add</a>
+    <table class="table table-bordered table-hover " >
+        <tr class="text-center bg-primary text-light">
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>Age</th>
+            <th>Image</th>
+            <th>Action</th>
 
-<a asp-action="New" class="btn btn-primary d-flex align-self-end mb-4">Add</a>
-<table class="table tab">
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Address</th>
-        <th>Age</th>
-        <th>Image</th>
-        <th>Action</th>
-       
-    </tr>
-    @foreach (var item in Model ?? Enumerable.Empty<Instructor>())
-    {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.Email</td>
-            <td>@item.Phone</td>
-            <td>@item.Address</td>
-            <td>@item.Age</td>
-            <td style="width:15%">
-                @if (item.image?.Length > 0)
-                {
-                    <img class="w-50" src="data:image/jpg;base64,@Convert.ToBase64String(item.image)" />
-                }
-                else
-                {
-                    <p>No Image</p>
-                }
-            </td>
-           @* <td><a href="/Instructor/Edit/@item.Id" class="btn btn-primary">Edit</a></td>
-            <td><a href="/Instructor/Delete/@item.Id" class="btn btn-danger">Delete</a></td>*@
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
-                <a class="btn btn-danger delete-button" data-id="@item.Id">Delete</a>
-            </td>
-           
         </tr>
-    }
-</table>
+        @foreach (var item in Model ?? Enumerable.Empty<Instructor>())
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Email</td>
+                <td>@item.Phone</td>
+                <td>@item.Address</td>
+                <td>@item.Age</td>
+                <td style="width:15%">
+                    @if (item.image?.Length > 0)
+                    {
+                        <img class="w-50" src="data:image/jpg;base64,@Convert.ToBase64String(item.image)" />
+                    }
+                    else
+                    {
+                        <p>No Image</p>
+                    }
+                </td>
+         
+                <td>
+
+                    <a class="text-success mr-3 editlink" id="edit" asp-action="Edit" asp-route-id="@item.Id">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill=" rgb(94, 94, 233)" class="bi bi-pen-fill" viewBox="0 0 16 16">
+                            <path d="m13.498.795.149-.149a1.207 1.207 0 1 1 1.707 1.708l-.149.148a1.5 1.5 0 0 1-.059 2.059L4.854 14.854a.5.5 0 0 1-.233.131l-4 1a.5.5 0 0 1-.606-.606l1-4a.5.5 0 0 1 .131-.232l9.642-9.642a.5.5 0 0 0-.642.056L6.854 4.854a.5.5 0 1 1-.708-.708L9.44.854A1.5 1.5 0 0 1 11.5.796a1.5 1.5 0 0 1 1.998-.001z" />
+                        </svg>
+                    </a>
+
+                    <a style="background-color:#f8f9fc;border:none;" class="delete-button" data-id="@item.Id">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="red" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                            <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
+                        </svg>
+                    </a>
+                 
+                </td>
+
+            </tr>
+        }
+    </table>
+</div>
+
 @section Scripts
     {
     <partial name="_ValidationScriptsPartial" />

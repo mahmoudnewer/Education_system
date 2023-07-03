@@ -11511,3 +11511,8 @@ body.sidebar-toggled footer.sticky-footer {
 .alertify-notifier .ajs-message {
     color: #fff !important;
 }
+.reportForm
+{
+    display:flex;
+    column-gap:20px;
+}

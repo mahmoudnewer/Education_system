@@ -2,31 +2,34 @@
 @{
     ViewData["Title"] = "GenerateReport";
 }
-
-<form method="post" action="@Url.Action("GenerateReport", "Grade")">
-    <label for="dateInput">Date:</label>
-    <input type="date" id="dateInput" name="selectedDate" required />
-    <button type="submit">Generate Report</button>
-</form>
-
-<table>
-    <thead>
-        <tr>
-            <th>Student Name</th>
-            <th>Average New Grade</th>
-            <th>Average Old Grade</th>
-            <th>Attendance Days</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model ?? Enumerable.Empty<dynamic>())
-        {
+<div class="main-panel">
+    <form class="reportForm" method="post" action="@Url.Action("GenerateReport", "Grade")">
+        <label for="dateInput">Date:</label>
+        <input class="form-control" type="date" id="dateInput" name="selectedDate" required style="width:200px" />
+        <button class="btn btn-primary " type="submit">Generate Report</button>
+    </form>
+    <table class="table table-hover table-bordered mt-4 ">
+        <thead class="text-center bg-primary text-light">
             <tr>
-                <td>@item.StudentName</td>
-                <td>@item.AverageNewGrade</td>
-                <td>@item.AverageOldGrade</td>
-                <td>@item.AttendanceDays</td>
+                <th>Student Name</th>
+                <th>Average New Grade</th>
+                <th>Average Old Grade</th>
+                <th>Attendance Days</th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model ?? Enumerable.Empty<dynamic>())
+            {
+                <tr>
+                    <td>@item.StudentName</td>
+                    <td>@item.AverageNewGrade</td>
+                    <td>@item.AverageOldGrade</td>
+                    <td>@item.AttendanceDays</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+

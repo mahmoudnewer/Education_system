@@ -20,3 +20,16 @@ html {
 body {
   margin-bottom: 60px;
 }
+.main-panel {
+    transition: width 0.25s ease, margin 0.25s ease;
+    width: calc(100% - 235px);
+    min-height: calc(100vh - 60px);
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+    width: 100%;
+    background-color:white;
+}

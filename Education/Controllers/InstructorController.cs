@@ -222,7 +222,7 @@ namespace Education.Controllers
         public IActionResult Delete(int id)
         {
             _InstructorService.Delete(id);
-            return View("Index");
+            return RedirectToAction("Index");
 
         }
     }
