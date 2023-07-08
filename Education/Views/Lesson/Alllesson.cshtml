@@ -21,7 +21,7 @@
                         <!--Search Date-->
                         <div class="row d-flex justify-content-center align-items-center ">
                             <form asp-action="Search_alllesson" class="col-lg-5 col-md-12  d-flex justify-content-center align-items-center  ">
-                                    <input type="date" id="date" name="date" class="form-control  rounded-pill " required>
+                                <input type="date" id="date" name="date" class="form-control  rounded-pill " required>
                                 <button type="submit" class="btn btn-primary mb-3 m-2">
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </button>
@@ -62,7 +62,7 @@
                                                 <td>@item.Name</td>
                                                 <td>@item.Type</td>
                                                 <td>@item.InstructorName</td>
-                                                <td>@item.Date</td>
+                                                <td>@item.Date.ToString("MM-dd-yyyy")</td>
                                             </tr>
                                         }
                                     </tbody>

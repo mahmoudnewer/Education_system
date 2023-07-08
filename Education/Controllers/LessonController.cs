@@ -95,7 +95,7 @@ namespace Education.Controllers
         public IActionResult Search_alllesson(DateTime date)
         {
 
-            var lesson = topic_repo.GetAll().Where(i => i.Date == date).ToList();
+            var lesson = topic_repo.GetAll().Where(i => i.Date.Date == date.Date).ToList();
 
             if (lesson.Count == 0)
             {
@@ -130,7 +130,7 @@ namespace Education.Controllers
             var userIdClaim = HttpContext.User.Claims.FirstOrDefault(c => c.Type == ClaimTypes.NameIdentifier);
             int Id = int.Parse(userIdClaim.Value);
 
-            var lesson = topic_repo.GetAll().Where(l => l.InstructorId == Id && l.Date == date).ToList();
+            var lesson = topic_repo.GetAll().Where(l => l.InstructorId == Id && l.Date.Date == date.Date).ToList();
             if (lesson.Count == 0)
             {
                 TempData["NoData"] = "No data found.";
