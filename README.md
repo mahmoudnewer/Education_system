@@ -1,5 +1,4 @@
 # Online Education System
-
 This is a web application for online education that allows instructors to add, edit, and remove students based on admin approval and also to record their old and new grades finally, at the end of the month you can calculate their average degrees. The application provides two types of users, Admin, Instructor. The application is built using ASP.NET Core MVC.
 
 ## Prerequisites 
